@@ -27,12 +27,19 @@ Update the DNS servers at your registrar to point to the two servers given to yo
 
 ## Create an AlwaysFree instance on Oracle Cloud
 1. Change the name of the instance to `mastodon` if you do not plan to host other Fedi services; use `fediverse` if you do
+1. Click `Edit` in the `Image and Shape` section
+1. Click the `Change image` next to `Oracle Linux 8`
 1. Select Ubuntu 22 for the image
-1. Select `Ampere (arm)` for the platform and configure it with a minimum of 1 CPU and 6 GB RAM; use more if needed
+1. Click the `Change shape` button next `AMD VM Standard`
+1. Select `Ampere` from the Shape Series
+1. Select the only shape available on the `Shape name` list
+1. Configure it with a minimum of 1 CPU and 6 GB RAM; use more if you will host several users
+1. Click `Select Shape` at the bottom
+1. Scroll down beyond the `Networking` section of the configuration panel
 1. Upload the public keyfile you generated for SSH logins (located at `~/.ssh/id_rsa.pub`)
-1. Create the instance
+1. Click `Create` at the bottom
 1. Wait 10 minutes for the instance to start
-1. Locate the IP address on the instance information panel
+1. Locate the IP address in the top right corner of the instance information panel
 1. Copy the IP address to the clipboard
 
 ## Create a DNS entry for your instance
