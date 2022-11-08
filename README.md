@@ -120,7 +120,7 @@ You will see output like this:
 
 `e351f61406c8ba6bdc489fdc4606c7c3  -`
 
-1. Copy the long string into your clipboard. Do not include the space or `-` at the end. Paste it where you see `<pg pwd>` below (two places!)
+Copy the long string into your clipboard. Do not include the space or `-` at the end. Paste it where you see `<pg pwd>` below (two places!)
 
 ```
 sudo docker run --name postgres14 -v /home/ubuntu/mastodon/postgres:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<pg pwd> --rm -d postgres:14-alpine`
