@@ -34,13 +34,16 @@ Cloudflare will give you the two DNS servers assigned to manage your account. Up
 
 ## Register for a free Oracle Cloud account
 
+Note: You must set `Shields Down` for this site if you use the _Brave_ browser. The website will not function properly with the shields up.
+
 ## Create an AlwaysFree instance on Oracle Cloud
 1. Change the name of the instance to `mastodon` if you do not plan to host other Fedi services; use `fediverse` if you do
 1. Click `Edit` in the `Image and Shape` section
 1. Click the `Change image` next to `Oracle Linux 8`
-1. Select Ubuntu 22 for the image
-1. Click the `Change shape` button next `AMD VM Standard`
-1. Select `Ampere` from the Shape Series
+1. Select Canonical Ubuntu for the image
+1. Click `Select image` at the bottom
+1. Click the `Change shape` button next to `AMD VM Standard`
+1. Select `Ampere` from the `Shape Series` options list
 1. Select the only shape available on the `Shape name` list
 1. Configure it with a minimum of 1 CPU and 6 GB RAM; use more if you will host several users
 1. Click `Select Shape` at the bottom
@@ -52,7 +55,7 @@ Cloudflare will give you the two DNS servers assigned to manage your account. Up
 1. Copy the IP address to the clipboard
 
 ## Create a DNS entry for your instance
-1. Go to your Cloudflare dashboard
+1. Go to your Cloudflare dashboard in another browser tab
 1. Click DNS from the main menu
 1. Click Create to create a new DNS record
 1. Choose `A` for the record type
@@ -77,6 +80,7 @@ Cloudflare will give you the two DNS servers assigned to manage your account. Up
 1. Once the upgrade completes, hit enter on `Ok` then `<tab>` and `<enter>` on the next screen
 1. `sudo reboot`
 1. Wait about 45 seconds for the server to reboot and log back in with `ssh ubuntu@mstdn.mydomain.com` (again, replacing `mydomain.com`)
+
 Note: If the upgrade does not proceed through to the end as expected, you may need to destroy and recreate the image. This happened to me once.
 
 ### Install `docker`
