@@ -28,7 +28,7 @@ Update the DNS servers at your registrar to point to the two servers given to yo
 ## Create an AlwaysFree instance on Oracle Cloud
 1. Select Ubuntu 22 for the image
 1. Select `Ampere (arm)` for the platform and configure it with a minimum of 1 CPU and 6 GB RAM; use more if needed
-1. Upload the public keyfile you generated for SSH logins
+1. Upload the public keyfile you generated for SSH logins (located at `~/.ssh/id_rsa.pub)
 1. Create the instance
 1. Wait 10 minutes for the instance to start
 1. Locate the IP address from the instance information panel
