@@ -186,11 +186,14 @@ When the process completes, you will see your admin password.
 ## Prepare the final build
 1. Run `docker-compose up -d`
 1. Wait a few seconds, then run`docker-compose down`
-1. `sudo chown -R 70:70 ./postgres`
-1. `sudo chown -R 991:991 ./public`
+1. Ensure some critical file permissions are correct:
+
+`sudo chown -R 70:70 ./postgres`
+
+`sudo chown -R 991:991 ./public`
 
 ## Stand up the mastodon stack
-1. `sudo docker-compose up -d`
+`sudo docker-compose up -d`
 
 ## Add NPM to your `docker-compose` stack
 
