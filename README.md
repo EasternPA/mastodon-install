@@ -197,7 +197,7 @@ When the process completes, you will see your admin password.
 
 ## Add NPM to your `docker-compose` stack
 
-1. Run `date | md5sum` twice to generate a new passwords- one for the NPM MySQL root account and one for the database
+1. Run `date | md5sum` twice to generate two new passwords: one for the NPM MySQL root account and one for the database
 1. Edit the `docker-compose.yml` with `vi` or `nano`, whichever you prefer
 1. Copy and paste the content below to add `NPM` immediately above the `networks:` section at the end of the `services:` section in your `docker-compose.yml`. Ensure the `volumes:` section is fully outdented to the first column.
 
