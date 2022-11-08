@@ -1,9 +1,19 @@
 # mastodon-install
-Instructions for installing the Mastodon Fediverse client using docker-compose
+Instructions for hosting a small Mastodon server instance for free (*almost*) using docker-compose
 
 # Introduction
 
+Mastodon is a micro-blogging application (similar in style to Twitter) that uses ActivityPub as the federation protocol on the backend. Mastodon is just one of several social networking applications in the Fediverse. You can learn more at [fediverse.party](https://fediverse.party).
+
+This document provides step-by-step instructions for hosting an instance of Mastodon for almost no cost (under $11US for the first 2 years).
+
+I tried to follow numerous documents like this one that had been assembled over the years, but I needed to combine (and tweak) steps from each of these documents in order to arrive at a working configuration. The steps explained below were drawn from the following documents, and I thank each of the authors for their contributions to this space.
+
 https://peterbabic.dev/blog/running-mastodon-with-docker-compose/
+
+https://www.howtoforge.com/how-to-install-mastodon-social-network-with-docker-on-ubuntu-1804/
+
+https://sleeplessbeastie.eu/2022/05/02/how-to-take-advantage-of-docker-to-install-mastodon/
 
 # Assumptions
 
