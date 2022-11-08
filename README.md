@@ -1,5 +1,5 @@
 # mastodon-install
-Instructions for hosting a small Mastodon server instance for free (*almost*) using docker-compose
+Instructions for hosting a small Mastodon server instance for free (well, *almost*) using docker-compose
 
 # Introduction
 
