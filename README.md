@@ -164,7 +164,7 @@ Kick off the build:
 1. `screen`
 1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
-## DETAILS MISSING HERE.. still working on it!
+## DETAILED ANSWERS TO THE QUESTIONS MISSING HERE.. still working on it!
 
 When you see the suggested contents of `.env.production` shown, WAIT
 
