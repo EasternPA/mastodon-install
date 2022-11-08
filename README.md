@@ -31,7 +31,7 @@ Update the DNS servers at your registrar to point to the two servers given to yo
 1. Upload the public keyfile you generated for SSH logins (located at `~/.ssh/id_rsa.pub`)
 1. Create the instance
 1. Wait 10 minutes for the instance to start
-1. Locate the IP address from the instance information panel
+1. Locate the IP address on the instance information panel
 1. Copy the IP address to the clipboard
 
 ## Create a DNS entry for your instance
