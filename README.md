@@ -115,7 +115,8 @@ Run `sudo docker-compose --version` to verify that it works
 1. `git clone https://github.com/mastodon/mastodon.git`
 1. `cd mastodon`
 1. `date | md5sum`
-1. You will see output like this:
+
+You will see output like this:
 
 `e351f61406c8ba6bdc489fdc4606c7c3  -`
 
