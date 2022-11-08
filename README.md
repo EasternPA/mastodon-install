@@ -30,8 +30,7 @@ https://sleeplessbeastie.eu/2022/05/02/how-to-take-advantage-of-docker-to-instal
 Note that `Let's Encrypt` does not support TLDs you can get for free when using Nginx Proxy Manager (NPM) in the way I describe below
 
 ## Migrate the DNS to Cloudlfare
-Cloudflare will give you the two DNS servers assigned to manage your account
-Update the DNS servers at your registrar to point to the two servers given to you by Cloudflare
+Cloudflare will give you the two DNS servers assigned to manage your account. Update the DNS servers at your registrar to point to the two servers given to you by Cloudflare.
 
 ## Register for a free Oracle Cloud account
 
