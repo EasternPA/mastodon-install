@@ -253,7 +253,7 @@ volumes:
 ## Get an SSL certificate from Let's Encrypt
 ### Get an API key from Cloudflare
 1. In the Cloudflare tab in your browser, click the person icon in the top right to bring up your Account menu
-2. Click on `My Profile`
+3. Click on `My Profile`
 
 ### Get an SSL Certificate in NPM
 1. Go to the `SSL Certificates` tab in `NPM`
