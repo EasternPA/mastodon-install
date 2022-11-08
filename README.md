@@ -7,7 +7,7 @@ Mastodon is a micro-blogging application (similar in style to Twitter) that uses
 
 This document provides step-by-step instructions for hosting an instance of Mastodon for almost no cost (under $11USD for the first 2 years).
 
-I tried to follow numerous documents like this one that had been assembled over the years, but I needed to combine (and tweak) steps from each of these documents in order to arrive at a working configuration. The steps explained below were drawn from the following documents, and I thank each of the authors for their contributions to this space.
+I tried to follow numerous instructional documents that had been assembled over the years, but I needed to combine (and tweak) steps from each of these documents in order to arrive at a working configuration. The steps explained below were drawn from the following documents, and I thank each of the authors for their contributions to this space.
 
 https://peterbabic.dev/blog/running-mastodon-with-docker-compose/
 
