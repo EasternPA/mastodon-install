@@ -42,7 +42,7 @@ Note: You must set `Shields Down` for this site if you use the _Brave_ browser. 
 ## Create an AlwaysFree instance on Oracle Cloud
 1. Change the name of the instance to `mastodon` if you do not plan to host other Fedi services; use `fediverse` if you do
 1. Click `Edit` in the `Image and Shape` section
-1. Click the `Change image` next to `Oracle Linux 8`
+1. Click the `Change image` button next to `Oracle Linux 8`
 1. Select Canonical Ubuntu for the image
 1. Click `Select image` at the bottom
 1. Click the `Change shape` button next to `AMD VM Standard`
