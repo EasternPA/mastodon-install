@@ -20,9 +20,9 @@ https://sleeplessbeastie.eu/2022/05/02/how-to-take-advantage-of-docker-to-instal
 # Prerequisites
 
 1. Paid domain name that works with Let's Encrypt
-1. Configure your domain to use Cloudflare for DNS
-1. VPS on Oracle Cloud Free Tier
-1. SSH public key to log into your OS image (run `ssh-keygen` in Linux)
+1. Domain reconfigured to use Cloudflare for DNS
+1. A Virtual Private Server (VPS) on Oracle Cloud's Free Tier
+1. An SSH public key for logging into your OS image (run `ssh-keygen` in Linux)
 
 ## Buy a domain
 `.xyz` domains typically cost $10.38 for 2 years at Namecheap
