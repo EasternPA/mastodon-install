@@ -165,12 +165,15 @@ When the process completes, you will see your admin password.
 1. Wait a few seconds, then run`docker-compose down`
 1. `sudo chown -R 70:70 ./postgres`
 1. `sudo chown -R 991:991 ./public`
+
+## Stand up the mastodon stack
 1. `sudo docker-compose up -d`
 
 ## Add NPM to your `docker-compose` stack
 
 1. Run `date | md5sum` twice to generate a new passwords- one for the NPM MySQL root account and one for the database
-1. Copy and paste the content below to add `NPM` to the end of the `services:` section of `docker-compose.yml` but before the `networks:` section. Ensure the `volumes:` section is fully outdented to the first column.
+1. Edit the `docker-compose.yml` with `vi` or `nano`, whichever you prefer
+1. Copy and paste the content below to add `NPM` immediately above the `networks:` section at the end of the `services:` section in your `docker-compose.yml`. Ensure the `volumes:` section is fully outdented to the first column.
 
 ```
   npm-db:
