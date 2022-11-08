@@ -78,7 +78,7 @@ Note: You must set `Shields Down` for this site if you use the _Brave_ browser. 
 ### Update image to prepare for `docker` installation
 
 1. `ssh ubuntu@mstdn.<mydomain.tld>` (replace `<mydomain.tld>` with the domain you purchased)
-Note that if the name does not resolve within 10 minutes, double check your work at Cloudflare
+Note that if the name fails to resolve within 10 minutes after updating your DNS, double check your work at Cloudflare
 
 1. `sudo apt update && sudo apt upgrade -y`
 1. Once the upgrade completes, hit enter on `Ok` then `<tab>` and `<enter>` on the next screen
