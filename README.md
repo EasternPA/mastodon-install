@@ -169,13 +169,15 @@ Kick off the build:
 When you see the suggested contents of `.env.production` shown, WAIT
 
 1. Copy the suggested contents of `.env.production` into the clipboard
-1. Hit `Ctrl-a` then `d` to exit screen
+1. Hit `Ctrl-a` then `d` to exit `screen`
 1. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
 1. Paste in the contents of `.env.production` from the clipboard
 1. Save and exit (`Ctrl-x, y, <Enter>` in `nano` or `<Esc>:wq<Enter>` in `vi`)
 1. Run `screen -r` to return to the setup screen
 
 Continue with the setup process
+
+## MORE DETAILS MISSING HERE
 
 When the process completes, you will see your admin password. 
 
