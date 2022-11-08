@@ -172,7 +172,7 @@ When you see the suggested contents of `.env.production` shown, WAIT
 1. Hit `Ctrl-a` then `d` to exit screen
 1. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
 1. Paste in the contents of `.env.production` from the clipboard
-1. Save and exit (`Ctrl-x, y, <enter>` in `nano` or `<Esc>:wq<enter>` in `vi`)
+1. Save and exit (`Ctrl-x, y, <Enter>` in `nano` or `<Esc>:wq<Enter>` in `vi`)
 1. Run `screen -r` to return to the setup screen
 
 Continue with the setup process
