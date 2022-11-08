@@ -26,6 +26,7 @@ Update the DNS servers at your registrar to point to the two servers given to yo
 ## Register for a free Oracle Cloud account
 
 ## Create an AlwaysFree instance on Oracle Cloud
+1. Change the name of the instance to `mastodon` if you do not plan to host other Fedi services; use `fediverse` if you do
 1. Select Ubuntu 22 for the image
 1. Select `Ampere (arm)` for the platform and configure it with a minimum of 1 CPU and 6 GB RAM; use more if needed
 1. Upload the public keyfile you generated for SSH logins (located at `~/.ssh/id_rsa.pub`)
