@@ -12,10 +12,11 @@ https://peterbabic.dev/blog/running-mastodon-with-docker-compose/
 1. Paid domain name that works with Let's Encrypt
 1. Configure your domain to use Cloudflare for DNS
 1. VPS on Oracle Cloud Free Tier
-1. SSH public key to log into your OS image (ssh-keygen -t rsa)
+1. SSH public key to log into your OS image (run `ssh-keygen` in Linux)
 
 ## Buy a domain
 `.xyz` domains typically cost $10.38 for 2 years at Namecheap
+
 Note that `Let's Encrypt` does not support TLDs you can get for free when using Nginx Proxy Manager (NPM) in the way I describe below
 
 ## Migrate the DNS to Cloudlfare
@@ -87,63 +88,80 @@ uid           [ unknown] Docker Release (CE deb) <docker@docker.com>
 sub   rsa4096 2017-02-22 [S]
 ```
 
-Note: change "arch=[amd64]" to "arch=[arm64]"
-SKIP step to usermod -- that gives your non-root user root privileges.. no good
-All future docker commands must be preceded by 'sudo'
-step 4 - install compose
-go to https://github.com/docker/compose in your browser
-click "tags" above the top of the source code files
-take note of the most recent release (currently v 2.12.2)
+Add the `docker` repository (note the `arm` architecture:
+1. `$ sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+
+Note: I do not like to add my non-root user to the docker group as this grants broad powers to the user. Just use `sudo` for commands that require `root` privileges, such as `docker` and `docker-compose`.
+
+Install `docker-compose`:
+1. Go to `https://github.com/docker/compose` in your browser
+1. Click `tags` above the top of the source code files
+1. Take note of the most recent release (currently v2.12.2)
 
 Copy and paste the following line into your terminal, replacing "2.12.2" with the current release:
+
+```
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-Contine with the next command in step 4:
 sudo chmod +x /usr/local/bin/docker-compose
+```
 
-Skip the command completion step
+Run `sudo docker-compose --version` to verify that it works
 
-sudo docker-compose --version
+## Install `mastodon`
 
-git clone https://github.com/mastodon/mastodon.git
-cd mastodon
-date | md5sum
-(copy sum for pg pwd)
+### Download the source code
 
-sudo docker run --name postgres14 -v /home/ubuntu/mastodon/postgres:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<pg pwd> --rm -d postgres:14-alpine
+1. `git clone https://github.com/mastodon/mastodon.git`
+1. `cd mastodon`
+1. `date | md5sum`
+1. Copy the long string into your clipboard. Paste it where you see `<pg pwd>` below (twice!)
 
+```
+sudo docker run --name postgres14 -v /home/ubuntu/mastodon/postgres:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<pg pwd> --rm -d postgres:14-alpine`
 sudo docker exec -it postgres14 psql -U postgres
-> CREATE USER mastodon WITH PASSWORD '<pg pwd>' CREATEDB;
-> exit
+```
 
-sudo docker stop postgres14
+While inside the PostgreSQL container, run:
 
-touch .env.production
-screen
-sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup
+`CREATE USER mastodon WITH PASSWORD '<pg pwd>' CREATEDB;`
 
-when you see the .env.production contents WAIT
-copy the .env.production contents into the clipboard
-ctrl-a d to exit screen
-vi or nano .env.production
-paste the .env.production contents
-save and exit
-run screen -r to return to the setup screen
+Look for `ROLE CREATED` in the response. If successful, type `exit`.
 
-continue with the setup process
+Stop the container:
 
-SAVE YOUR ADMIN PASSWORD
+`sudo docker stop postgres14`
 
-docker-compose up -d
-docker-compose down
-sudo chown -R 70:70 ./postgres
-sudo chown -R 991:991 ./public
-#sudo chown -R 1000:1000 ./elasticsearch
-sudo docker-compose up -d
+Kick off the build:
+1. `touch .env.production`
+1. `screen`
+1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
-run `date | md5sum` twice to generate a new passwords for the NPM MySQL root account and database
+When you see the suggested contents of `.env.production` shown, WAIT
 
-add NPM to the end of the docker-compose stack services section but before the networks: section. you need the volumes: declarative to be outdented all the way, like networks:
+1. Copy the suggested contents of `.env.production` into the clipboard
+1. Hit `Ctrl-a` then `d` to exit screen
+1. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
+1. Paste in the contents of `.env.production` from the clipboard
+1. Save and exit
+1. Run `screen -r` to return to the setup screen
+
+Continue with the setup process
+
+When the process completes, you will see your admin password. 
+
+## SAVE YOUR ADMIN PASSWORD
+
+## Prepare the final build
+1. Run `docker-compose up -d`
+1. Wait a few seconds, then run`docker-compose down`
+1. `sudo chown -R 70:70 ./postgres`
+1. `sudo chown -R 991:991 ./public`
+1. `sudo docker-compose up -d`
+
+## Add NPM to your `docker-compose` stack
+
+1. Run `date | md5sum` twice to generate a new passwords- one for the NPM MySQL root account and one for the database
+1. Copy and paste the content below to add `NPM` to the end of the `services:` section of `docker-compose.yml` but before the `networks:` section. Ensure the `volumes:` section is fully outdented to the first column.
 
 ```
   npm-db:
@@ -186,17 +204,19 @@ volumes:
   npm-data:
 ```
 
-docker-compose up -d
+1. Run `docker-compose up -d` to add `NPM` services to your stack
+1. Run `exit` to logout of the server instance
+1. Run `ssh` to log back in, but add `-L 8082:localhost:81` to the end of the ssh command line. This will let you configure `NPM` via the web UI.
+1. Pull up `http://localhost:8082` in your browser
+1. Log into NPM using `admin@example.com` and `changeme` as the credentials
+1. Update the registration fields with your name, nickname, and a strong password
 
-exit from the instance
+## Get an SSL certificate from Let's Encrypt
+### Get an API key from Cloudflare
 
-ssh back in but add `-L 8082:localhost:81` to the end of the ssh command line
-
-point your local browser at http://localhost:8082
-log into NPM with admin@example.com / changeme
-fill out your admin details
-
-Get an API key from Cloudflare
+### Get an SSL Certificate in NPM
+1. Go to the `SSL Certificates` tab in `NPM`
+1. 
 Get an SSL certificate from Let's Encrypt using NPM; use the Cloudflare API key for the DNS challenge
 
 Add a Proxy host for Mastodon pointing to the host called web on port 3000
