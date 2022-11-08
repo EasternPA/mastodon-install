@@ -76,10 +76,12 @@ Configure firewall:
 1. `$ sudo ufw status` to verify the ufw status
 
 Add `docker`'s GPG key to apt:
-1. `$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+
+`$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
 
 Verify the GPG key was successfully added:
-1. `$ sudo apt-key fingerprint 0EBFCD88`
+
+`$ sudo apt-key fingerprint 0EBFCD88`
 
 Look for this output in the response:
 ```
@@ -90,7 +92,8 @@ sub   rsa4096 2017-02-22 [S]
 ```
 
 Add the `docker` repository (note the `arm` architecture:
-1. `$ sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+
+`$ sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
 
 Note: I do not like to add my non-root user to the docker group as this grants broad powers to the user. Just use `sudo` for commands that require `root` privileges, such as `docker` and `docker-compose`.
 
@@ -106,7 +109,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Run `sudo docker-compose --version` to verify that it works
+Run `sudo docker-compose --version` and ensure a version number is returned
 
 ## Install `mastodon`
 
