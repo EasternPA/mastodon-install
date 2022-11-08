@@ -253,30 +253,66 @@ volumes:
 ## Get an SSL certificate from Let's Encrypt
 ### Get an API key from Cloudflare
 1. In the Cloudflare tab in your browser, click the person icon in the top right to bring up your Account menu
-3. Click on `My Profile`
+1. Click on `My Profile`
+1. Click `API Tokens` on the left
+1. Click `Create Token` on the right
+1. Click `Use template` next to `Edit Zone DNS` (the top menu item)
+1. In the top section `Permissions`, click `+ Add more`
+1. Drop down `Account` and choose `Zone`
+1. Drop down the menu with `Select item` and choose `Zone`
+1. Drop down `Select` and choose `Read`
+1. In the next section `Zone Resources`, click `Select` and choose your domain name
+1. Scroll down to the bottom of the page and click on `Start date` to bring up the calendar
+1. Click on today's date for the start date and a date far out into the future for the end date
+1. Click `Continue to summary`
+1. Click `Create token` on the next page
+1. Copy the token shown
 
 ### Get an SSL Certificate in NPM
-1. Go to the `SSL Certificates` tab in `NPM`
- 
-Get an SSL certificate from Let's Encrypt using NPM; use the Cloudflare API key for the DNS challenge
+1. In your Nginx Proxy Manager browser tab, go to the `SSL Certificates` section
+1. Click the `Add SSL Certificate` button
+1. Choose `Let's Encrypt` from the dropdown menu
+1. Enter `mstdn.<yourdomain.tld>` for the domain name, replacing `<yourdomain.tld>` with the domain you bought
+1. Turn on the `Use a DNS Challenge` slider
+1. Choose `Cloudflare` from the dropdown list of providers
+1. Replace the sample API token shown with the API token displayed to you on the Cloudflare API token screen
+1. Click the slider at the bottom to indicate you agree with the Terms and Conditions
+1. Click the `Save` button at the bottom
+1. It should take less than a minute to receive your certificate
 
-Add a Proxy host for Mastodon pointing to the host called web on port 3000
+### Add a Proxy host for `web`
+1. Click `Dashboard` to return to your NPM Dashboard view
+1. Click on the `Proxy hosts` button on the left
+1. Click the `Add proxy host` button at the right end of the menu
+1. Enter `mstdn.<yourdomain.tld>` in the domain name field, replacing `<yourdomain.tld>` with the domain you bought Note: You *must* click on the name that you just typed as it appears in the dropdown list to lock it into the field. Do NOT tab out of that field without clicking it.
+1. Enter `web` in the `Forward Hostname/IP` field and `3000` in the `Forward port` field
+1. Enable `Block Common Exploits`
+1. Click the `SSL` tab up top
+1. Click `None` under `SSL Certificate` and choose the domain name you entered on the Details tab (i.e. `mstdn.<yourdomain.tld>`)
+1. Enable `Force SSL`, `HTTP/2 Support`, and `HSTS Enabled`
+1. Click the `Save` button
 
-Point your browser to your FQDN. 
+## Log into your admin account
+1. Point your browser to `mstdn.<yourdomain.tld>`
+1. You should see your main Mastodon screen
+1. Log into mastodon with your admin id and password that you saved before
 
-log into mastodon with your admin id/pwd
-go to preferences / invite people
-generate a link; copy it
-open a private browser window
-pull up the invite link URL
-fill in your non-root user details
+## Create your 'normal user' account
+1. Click `Preferences` at the bottom of the menu on the right
+1. Click `Invite people` in the menu on the left
+1. Generate an invite link on the right and copy it into your clipboard
+1. Open a private browser window
+1. Paste the invite link to bring up the signup page
+1. Fill in the details for your non-root user; remember your password
+1. You will see a message to look for a verification email; you will not get one (unless you setup email earlier)
+1. Return to your `ssh` shell
+1. `sudo docker exec -it mastodon-streaming-1 /bin/bash`
+1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts modify <your non-root username> --confirm`
+1. (look for `OK`) in return
 
-go back to your ssh shell
-`sudo docker exec -it mastodon-streaming-1 /bin/bash`
-`RAILS_ENV=production bin/tootctl accounts modify <your non-root user> --confirm`
-(look for `OK`) in return
-
-go back to your private browser window
-return to the main page for your mastodon FQDN
-click the 3 vertical dots next to your username and choose logout at the bottom
-verify that you can log back in with your non-root username/password
+## Verify your normal account works
+1. Go back to your private browser window
+1. Edit the URL to return to `https://mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with your actual domain
+1. You should already be logged in
+1. Click the 3 vertical dots next to your username and choose logout at the bottom
+1. Verify that you can log back in with your non-root username/password
