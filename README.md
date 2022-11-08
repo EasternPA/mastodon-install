@@ -5,7 +5,7 @@ Instructions for hosting a small Mastodon server instance for free (well, *almos
 
 Mastodon is a micro-blogging application (similar in style to Twitter) that uses ActivityPub as the federation protocol on the backend. Mastodon is just one of several social networking applications in the Fediverse. You can learn more at [fediverse.party](https://fediverse.party).
 
-This document provides step-by-step instructions for hosting an instance of Mastodon for almost no cost (under $11US for the first 2 years).
+This document provides step-by-step instructions for hosting an instance of Mastodon for almost no cost (under $11USD for the first 2 years).
 
 I tried to follow numerous documents like this one that had been assembled over the years, but I needed to combine (and tweak) steps from each of these documents in order to arrive at a working configuration. The steps explained below were drawn from the following documents, and I thank each of the authors for their contributions to this space.
 
