@@ -24,10 +24,12 @@ https://sleeplessbeastie.eu/2022/05/02/how-to-take-advantage-of-docker-to-instal
 1. A Virtual Private Server (VPS) on Oracle Cloud's Free Tier
 1. An SSH public key for logging into your OS image (run `ssh-keygen` in Linux)
 
-## Buy a domain
-`.xyz` domains typically cost $10.38 for 2 years at Namecheap
+## Register for a free Cloudflare account
 
-Note that `Let's Encrypt` does not support TLDs you can get for free when using Nginx Proxy Manager (NPM) in the way I describe below
+Register at https://cloudflare.com
+
+## Buy a domain
+Let's Encrypt offers free SSL certificates for domain owners, but they do not make it easy get certificates for Top Level Domains (TLDs) you can get for free at various websites. I prefer the easy web UI method, and that requires a domain with a non-free TLD. Namecheap sells .xyz domains for $10.38 for the first 2 years, for example, and they work fine for this. Domains that end in `.social` cost just a little more.
 
 ## Migrate the DNS to Cloudlfare
 Cloudflare will give you the two DNS servers assigned to manage your account. Update the DNS servers at your registrar to point to the two servers given to you by Cloudflare.
