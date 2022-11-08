@@ -16,6 +16,7 @@ https://www.howtoforge.com/how-to-install-mastodon-social-network-with-docker-on
 https://sleeplessbeastie.eu/2022/05/02/how-to-take-advantage-of-docker-to-install-mastodon/
 
 # Assumptions
+Familiarity with Linux, domain registration, DNS management, and web hosting, including SSL encryption.
 
 # Prerequisites
 
