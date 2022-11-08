@@ -297,7 +297,7 @@ volumes:
 1. Click the `Save` button
 
 ## Log into your admin account
-1. Point your browser to `mstdn.<yourdomain.tld>`
+1. Point your browser to `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain you bought
 1. You should see your main Mastodon screen
 1. Log into mastodon with your admin id and password that you saved before
 
