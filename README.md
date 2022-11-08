@@ -31,8 +31,8 @@ Register at https://cloudflare.com
 ## Buy a domain
 Let's Encrypt offers free SSL certificates for domain owners, but they do not make it easy get certificates for Top Level Domains (TLDs) you can get for free at various websites. I prefer the easy web UI method, and that requires a domain with a non-free TLD. Namecheap sells .xyz domains for $10.38 for the first 2 years, for example, and they work fine for this. Domains that end in `.social` cost just a little more.
 
-## Migrate the DNS to Cloudlfare
-Cloudflare will give you the two DNS servers assigned to manage your account. Update the DNS servers at your registrar to point to the two servers given to you by Cloudflare.
+## Migrate the DNS to Cloudflare
+Cloudflare will give you the two DNS servers assigned to manage your account. The process to change the DNS servers managing your domain will vary by registrar and is done at your registrar's site. Update the DNS servers at your registrar to point to the two servers given to you by Cloudflare.
 
 ## Register for a free Oracle Cloud account
 
