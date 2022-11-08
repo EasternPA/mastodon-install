@@ -320,3 +320,5 @@ volumes:
 1. You should already be logged in
 1. Click the 3 vertical dots next to your username and choose logout at the bottom
 1. Verify that you can log back in with your non-root username/password
+
+Enjoy your time in the Fediverse!
