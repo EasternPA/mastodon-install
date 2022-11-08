@@ -65,23 +65,23 @@ Note: If the upgrade does not proceed through to the end as expected, you may ne
 
 ### Install `docker`
 Install dependencies:
-1. `$ sudo apt update`
-1. `$ sudo apt install ca-certificates curl ufw apt-transport-https software-properties-common git -y`
+1. `sudo apt update`
+1. `sudo apt install ca-certificates curl ufw apt-transport-https software-properties-common git -y`
 
 Configure firewall:
-1. `$ sudo ufw allow OpenSSH`
-1. `$ sudo ufw enable`
-1. `$ sudo ufw allow http`
-1. `$ sudo ufw allow https`
-1. `$ sudo ufw status` to verify the ufw status
+1. `sudo ufw allow OpenSSH`
+1. `sudo ufw enable`
+1. `sudo ufw allow http`
+1. `sudo ufw allow https`
+1. `sudo ufw status` to verify the ufw status
 
 Add `docker`'s GPG key to apt:
 
-`$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
 
 Verify the GPG key was successfully added:
 
-`$ sudo apt-key fingerprint 0EBFCD88`
+`sudo apt-key fingerprint 0EBFCD88`
 
 Look for this output in the response:
 ```
@@ -93,7 +93,7 @@ sub   rsa4096 2017-02-22 [S]
 
 Add the `docker` repository (note the `arm` architecture:
 
-`$ sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+`sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
 
 Note: I do not like to add my non-root user to the docker group as this grants broad powers to the user. Just use `sudo` for commands that require `root` privileges, such as `docker` and `docker-compose`.
 
@@ -225,7 +225,7 @@ volumes:
 
 ### Get an SSL Certificate in NPM
 1. Go to the `SSL Certificates` tab in `NPM`
-1. 
+ 
 Get an SSL certificate from Let's Encrypt using NPM; use the Cloudflare API key for the DNS challenge
 
 Add a Proxy host for Mastodon pointing to the host called web on port 3000
