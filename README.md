@@ -81,11 +81,10 @@ Note: You must set `Shields Down` for this site if you use the _Brave_ browser. 
 1. `sudo reboot`
 1. Wait about 45 seconds for the server to reboot and log back in with `ssh ubuntu@mstdn.mydomain.com` (again, replacing `mydomain.com`)
 
-Note: If the upgrade does not proceed through to the end as expected, you may need to destroy and recreate the image. This happened to me once.
+Note: If the upgrade does not proceed through to the end as expected, you may need to destroy and recreate the image. This happened to me once while developing these instructions.
 
 ### Install `docker`
 Install dependencies:
-1. `sudo apt update`
 1. `sudo apt install ca-certificates curl ufw apt-transport-https software-properties-common git -y`
 
 Configure firewall:
@@ -95,7 +94,7 @@ Configure firewall:
 1. `sudo ufw allow https`
 1. `sudo ufw status` to verify the ufw status
 
-Add `docker`'s GPG key to apt:
+Add the GPG key for the `docker` repository to apt:
 
 `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
 
@@ -103,7 +102,7 @@ Verify the GPG key was successfully added:
 
 `sudo apt-key fingerprint 0EBFCD88`
 
-Look for this output in the response:
+Look for this output in return:
 ```
 pub   rsa4096 2017-02-22 [SCEA]
       9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
@@ -111,7 +110,7 @@ uid           [ unknown] Docker Release (CE deb) <docker@docker.com>
 sub   rsa4096 2017-02-22 [S]
 ```
 
-Add the `docker` repository (note the `arm` architecture:
+Add the `docker` repository for the `arm` architecture:
 
 `sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
 
@@ -129,7 +128,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Run `sudo docker-compose --version` and ensure a version number is returned
+Run `sudo docker-compose --version` and ensure the current version number is returned
 
 ## Install `mastodon`
 
@@ -143,7 +142,7 @@ You will see output like this:
 
 `e351f61406c8ba6bdc489fdc4606c7c3  -`
 
-Copy the long string into your clipboard. Do not include the space or `-` at the end. Paste it where you see `<pg pwd>` below (two places!)
+Copy the long string into your clipboard. Do not include the space or `-` at the end. You will paste it where you see `<pg pwd>` below (two places!)
 
 ```
 sudo docker run --name postgres14 -v /home/ubuntu/mastodon/postgres:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<pg pwd> --rm -d postgres:14-alpine`
@@ -154,7 +153,7 @@ While inside the PostgreSQL container, run:
 
 `CREATE USER mastodon WITH PASSWORD '<pg pwd>' CREATEDB;`
 
-Look for `ROLE CREATED` in the response. If successful, type `exit`.
+Note: include the single quotes `'` in the above command. Look for `ROLE CREATED` in the response. If successful, type `exit`.
 
 Stop the container:
 
@@ -165,13 +164,15 @@ Kick off the build:
 1. `screen`
 1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
+## DETAILS MISSING HERE.. still working on it!
+
 When you see the suggested contents of `.env.production` shown, WAIT
 
 1. Copy the suggested contents of `.env.production` into the clipboard
 1. Hit `Ctrl-a` then `d` to exit screen
 1. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
 1. Paste in the contents of `.env.production` from the clipboard
-1. Save and exit
+1. Save and exit (`Ctrl-x`, `y`, <enter> in `nano` or <Esc>`:wq`<enter> in `vi`)
 1. Run `screen -r` to return to the setup screen
 
 Continue with the setup process
