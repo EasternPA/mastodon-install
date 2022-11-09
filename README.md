@@ -220,7 +220,7 @@ If all goes well, you should see `You can login with the password` and a strong,
 ## URGENT: SAVE YOUR ADMIN PASSWORD
 
 ## Prepare the final build
-1. Run `docker-compose up -d`
+1. Run `sudo docker-compose up -d`
 1. Wait a few seconds, then run`docker-compose down`
 1. Ensure some critical file permissions are correct:
 
