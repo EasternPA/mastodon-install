@@ -211,7 +211,7 @@ When you see the suggested contents of `.env.production` shown, WAIT
 Continue with the setup process
 
 1. `Prepare the database now?` - Hit enter for `(Y)es`. You should `Done!` after a few seconds.
-1. `Create an admin user?` - Hit `n` for `(N)o`
+1. `Create an admin user?` - Hit `n` for `(N)o` and hit enter
 
 The setup script will exit.
 
