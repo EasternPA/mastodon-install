@@ -333,6 +333,8 @@ volumes:
 1. `sudo docker exec -it mastodon-streaming-1 /bin/bash`
 1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts create <your admin username> --email <your-admin@email> --role=Admin` (Note that `admin` is reserved, so you must use a different name)
 1. Look for `OK` and your password. SAVE THE PASSWORD.
+1. `RAILS_ENV=production bin/tootctl accounts modify <your admin username> --confirm`
+1. Look for 'OK'
 
 ## Create your 'normal user' account
 1. Log into your Mastodon instance with your admin email and password from above
