@@ -249,8 +249,8 @@ volumes:
 1. Save and exit
 1. Run `docker-compose up -d` to add `NPM` services to your stack
 1. Run the `exit` command to logout of the server instance
-1. Run `ssh` to log back in, but add `-L 8082:localhost:81` to the end of the ssh command line. This will let you configure `NPM` via the web UI.
-1. Pull up `http://localhost:8082` in your browser
+1. Run `ssh` to log back in, but add `-L 8081:localhost:81` to the end of the ssh command line. This will let you configure `NPM` via the web UI.
+1. Pull up `http://localhost:8081` in your browser
 1. Log into NPM using `admin@example.com` and `changeme` as the credentials
 1. Update the registration fields with your name, nickname, and a strong password
 
