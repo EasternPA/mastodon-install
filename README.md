@@ -333,7 +333,9 @@ volumes:
 1. `sudo docker exec -it mastodon-streaming-1 /bin/bash`
 1. At the container command prompt, run:
 
-`RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Admin` (Note that `admin` is reserved, so you must use a different name)
+```
+RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Admin
+``` 
 
 {:start="3"}
 1. Look for `OK` and your password. SAVE THE PASSWORD.
