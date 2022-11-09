@@ -157,9 +157,7 @@ At the `postgres=#` command line, run:
 
 `CREATE USER mastodon WITH PASSWORD '<pg pwd>' CREATEDB;`
 
-Note: include the single quotes `'` in the above command. Look for `ROLE CREATED` in the response. If successful, type `exit`.
-
-Look for `CREATE ROLE` as the response.
+Note: include the single quotes `'` in the above command. Look for `CREATE ROLE` in the response. If successful, type `exit`.
 
 Next, stop the container:
 
