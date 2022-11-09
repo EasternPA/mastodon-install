@@ -149,7 +149,7 @@ You will see output like this:
 Copy the long string into your clipboard. Do not include the space or `-` at the end. You will paste it where you see `<pg pwd>` below (two places!)
 
 ```
-sudo docker run --name postgres14 -v /home/ubuntu/mastodon/postgres:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<pg pwd> --rm -d postgres:14-alpine
+sudo docker run --name postgres14 -v /home/ubuntu/mastodon/postgres14:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<pg pwd> --rm -d postgres:14-alpine
 sudo docker exec -it postgres14 psql -U postgres
 ```
 
@@ -178,7 +178,7 @@ Hit `<Enter>` to accept all of the defauts below:
 1. `PostgreSQL port` - hit enter for the default
 1. `Name of PostgreSQL database` - hit enter for the defualt
 1. `Name of PostgreSQL user` - hit enter for the default
-1. `Password of PostgreSQL user` - hit enter for the default
+1. `Password of PostgreSQL user` - copy/paste in your PostgreSQL password generated earlier
 1. `Redis host` - hit enter for the default
 1. `Redis port` - hit enter for the default
 1. `Redis password` - hit enter for the default
