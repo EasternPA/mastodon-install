@@ -165,7 +165,7 @@ Next, stop the container:
 
 Kick off the build:
 1. `touch .env.production`
-1. `screen` (hit `Enter` at the welcome notice)
+1. Open another terminal window and `ssh` into your host again
 1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
 Answer the prompts:
@@ -202,11 +202,11 @@ You will see a notice that it will be written to `.env.production`. Hit enter to
 When you see the suggested contents of `.env.production` shown, WAIT
 
 1. Copy the suggested contents of `.env.production` into the clipboard
-1. Hit `Ctrl-a` then `d` to exit `screen`
+1. Switch to your secondary `ssh` session
 1. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
 1. Paste in the contents of `.env.production` from the clipboard
 1. Save and exit (`Ctrl-x, y, <Enter>` in `nano` or `<Esc>:wq<Enter>` in `vi`)
-1. Run `screen -r` to return to the setup screen
+1. Switch back to your primary `ssh` session
 
 Continue with the setup process
 
