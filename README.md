@@ -168,7 +168,36 @@ Kick off the build:
 1. `screen` (hit `Enter` at the welcome notice)
 1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
-## DETAILED ANSWERS TO THE QUESTIONS MISSING HERE.. still working on it!
+Answer the prompts:
+`Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
+
+Hit `<Enter>` to accept all of the defauts below:
+1. `Single user mode` - hit enter for `(N)o`
+1. `Are you using Docker?` - hit enter for `(Y)es`
+1. `PostgreSQL host` - hit enter for the default
+1. `PostgreSQL port` - hit enter for the default
+1. `Name of PostgreSQL database` - hit enter for the defualt
+1. `Name of PostgreSQL user` - hit enter for the default
+1. `Password of PostgreSQL user` - hit enter for the default
+1. `Redis host` - hit enter for the default
+1. `Redis port` - hit enter for the default
+1. `Redis password` - hit enter for the default
+1. `Store uploaded files on the cloud?` - hit enter for the default
+
+Email configuration - Continue hitting Enter on the defaults
+3. `Send emails from localhost?` - hit enter for the default
+4. `SMTP server` - hit enter for the default
+5. `SMTP port` - hit enter for the default
+6. `SMTP username` - hit enter for the default
+7. `SMTP password` - hit enter for the default
+8. `SMTP authentication` - hit enter for the default
+9. `SMTP OpenSSL verify mode` - hit enter for the default `none`
+10. Address to use as `From` for notification emails - hit enter for the default
+
+Hit `n` when asked to send a test e-mail. The configuation above is invalid and will not work. That's okay.
+1. `Send a test e-mail now?` - hit `N` for No
+
+You will see a notice that it will be written to `.env.production`. Hit enter to display the contents.
 
 When you see the suggested contents of `.env.production` shown, WAIT
 
@@ -180,6 +209,15 @@ When you see the suggested contents of `.env.production` shown, WAIT
 1. Run `screen -r` to return to the setup screen
 
 Continue with the setup process
+
+1. `Prepare the database now?` - Hit enter for `(Y)es`. You should `Done!` after a few seconds.
+1. `Create an admin user?` - Hit enter for `(Y)es`
+1. `Username (admin)?` - Hit enter to accept the default
+1. `E-mail:` - Enter a real email (even though the notification system is not properly configured). If you use gmail, you can enter `+mstdn` in between your email username and `@gmail.com`.
+
+
+
+
 
 ## MORE DETAILS MISSING HERE
 
