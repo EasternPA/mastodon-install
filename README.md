@@ -331,10 +331,11 @@ volumes:
 ## Create your Admin account
 1. Return to your primary `ssh` terminal session
 1. `sudo docker exec -it mastodon-streaming-1 /bin/bash`
-1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Admin` (Note that `admin` is reserved, so you must use a different name)
-1. Look for `OK` and your password. SAVE THE PASSWORD.
-1. `RAILS_ENV=production bin/tootctl accounts modify admin2 --confirm`
-1. Look for 'OK'
+1. At the container command prompt, run:
+`RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Admin` (Note that `admin` is reserved, so you must use a different name)
+3. Look for `OK` and your password. SAVE THE PASSWORD.
+4. `RAILS_ENV=production bin/tootctl accounts modify admin2 --confirm`
+5. Look for 'OK'
 
 ## Create your 'normal user' account
 1. Log into your Mastodon instance with your admin2 email and password from above
