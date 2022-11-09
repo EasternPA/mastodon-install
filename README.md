@@ -159,7 +159,9 @@ At the `postgres=#` command line, run:
 
 Note: include the single quotes `'` in the above command. Look for `ROLE CREATED` in the response. If successful, type `exit`.
 
-Stop the container:
+Look for `CREATE ROLE` as the response.
+
+Next, stop the container:
 
 `sudo docker stop postgres14`
 
