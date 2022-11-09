@@ -153,7 +153,7 @@ sudo docker run --name postgres14 -v /home/ubuntu/mastodon/postgres:/var/lib/pos
 sudo docker exec -it postgres14 psql -U postgres
 ```
 
-While inside the PostgreSQL container, run:
+At the `postgres=#` command line, run:
 
 `CREATE USER mastodon WITH PASSWORD '<pg pwd>' CREATEDB;`
 
