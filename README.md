@@ -165,7 +165,7 @@ Next, stop the container:
 
 Kick off the build:
 1. `touch .env.production`
-1. `screen`
+1. `screen` (hit `Enter` at the welcome notice)
 1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
 ## DETAILED ANSWERS TO THE QUESTIONS MISSING HERE.. still working on it!
