@@ -211,13 +211,9 @@ When you see the suggested contents of `.env.production` shown, WAIT
 Continue with the setup process
 
 1. `Prepare the database now?` - Hit enter for `(Y)es`. You should `Done!` after a few seconds.
-1. `Create an admin user?` - Hit enter for `(Y)es`
-1. `Username (admin)?` - Hit enter to accept the default
-1. `E-mail:` - Enter a real email (even though the notification system is not properly configured). If you use gmail, you can enter `+mstdn` in between your email username and `@gmail.com`.
+1. `Create an admin user?` - Hit `n` for `(N)o`
 
-If all goes well, you should see `You can login with the password` and a strong, generated password.
-
-## URGENT: SAVE YOUR ADMIN PASSWORD
+The setup script will exit.
 
 ## Prepare the final build
 1. Run `sudo docker-compose up -d`
@@ -328,12 +324,18 @@ volumes:
 1. Enable `Force SSL`, `HTTP/2 Support`, and `HSTS Enabled`
 1. Click the `Save` button
 
-## Log into your admin account
+## Verify Mastodon is running
 1. Point your browser to `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain you bought
 1. You should see your main Mastodon screen
-1. Log into mastodon with your admin id and password that you saved before
+
+## Create your Admin account
+1. Return to your primary `ssh` terminal session
+1. `sudo docker exec -it mastodon-streaming-1 /bin/bash`
+1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts create <your admin username> --email <your-admin@email> --role=Admin` (Note that `admin` is reserved, so you must use a different name)
+1. Look for `OK` and your password. SAVE THE PASSWORD.
 
 ## Create your 'normal user' account
+1. Log into your Mastodon instance with your admin email and password from above
 1. Click `Preferences` at the bottom of the menu on the right
 1. Click `Invite people` in the menu on the left
 1. Generate an invite link on the right and copy it into your clipboard
@@ -342,15 +344,15 @@ volumes:
 1. Fill in the details for your non-root user; remember your password
 1. You will see a message to look for a verification email; you will not get one (unless you setup email earlier)
 1. Return to your `ssh` shell
-1. `sudo docker exec -it mastodon-streaming-1 /bin/bash`
+1. `sudo docker exec -it mastodon-streaming-1 /bin/bash` (if you have exited the session before)
 1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts modify <your non-root username> --confirm`
 1. (look for `OK`) in return
 
 ## Verify your normal account works
 1. Go back to your private browser window
 1. Edit the URL to return to `https://mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with your actual domain
-1. You should already be logged in
+1. You should already be logged in with your non-admin user
 1. Click the 3 vertical dots next to your username and choose logout at the bottom
-1. Verify that you can log back in with your non-root username/password
+1. Verify that you can log back in with your non-admin username/password
 
 Enjoy your time in the Fediverse!
