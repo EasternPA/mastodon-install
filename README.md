@@ -335,6 +335,7 @@ volumes:
 
 `RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Admin` (Note that `admin` is reserved, so you must use a different name)
 
+{:start="3"}
 1. Look for `OK` and your password. SAVE THE PASSWORD.
 1. `RAILS_ENV=production bin/tootctl accounts modify admin2 --confirm`
 1. Look for 'OK'
