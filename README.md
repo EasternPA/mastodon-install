@@ -216,9 +216,9 @@ Continue with the setup process
 The setup script will exit.
 
 ## Prepare the final build
-1. Run `sudo docker-compose up -d`
-1. Wait a few seconds, then run`docker-compose down`
-1. Ensure some critical file permissions are correct:
+Run `sudo docker-compose up -d && sleep 15 && sudo docker-compose down`
+
+Ensure some critical file permissions are correct:
 
 `sudo chown -R 70:70 ./postgres14`
 
