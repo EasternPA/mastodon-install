@@ -215,15 +215,9 @@ Continue with the setup process
 1. `Username (admin)?` - Hit enter to accept the default
 1. `E-mail:` - Enter a real email (even though the notification system is not properly configured). If you use gmail, you can enter `+mstdn` in between your email username and `@gmail.com`.
 
+If all goes well, you should see `You can login with the password` and a strong, generated password.
 
-
-
-
-## MORE DETAILS MISSING HERE
-
-When the process completes, you will see your admin password. 
-
-## SAVE YOUR ADMIN PASSWORD
+## URGENT: SAVE YOUR ADMIN PASSWORD
 
 ## Prepare the final build
 1. Run `docker-compose up -d`
