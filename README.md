@@ -331,13 +331,13 @@ volumes:
 ## Create your Admin account
 1. Return to your primary `ssh` terminal session
 1. `sudo docker exec -it mastodon-streaming-1 /bin/bash`
-1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts create <your admin username> --email <your-admin@email> --role=Admin` (Note that `admin` is reserved, so you must use a different name)
+1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Admin` (Note that `admin` is reserved, so you must use a different name)
 1. Look for `OK` and your password. SAVE THE PASSWORD.
-1. `RAILS_ENV=production bin/tootctl accounts modify <your admin username> --confirm`
+1. `RAILS_ENV=production bin/tootctl accounts modify admin2 --confirm`
 1. Look for 'OK'
 
 ## Create your 'normal user' account
-1. Log into your Mastodon instance with your admin email and password from above
+1. Log into your Mastodon instance with your admin2 email and password from above
 1. Click `Preferences` at the bottom of the menu on the right
 1. Click `Invite people` in the menu on the left
 1. Generate an invite link on the right and copy it into your clipboard
