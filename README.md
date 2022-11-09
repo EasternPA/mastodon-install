@@ -224,7 +224,7 @@ If all goes well, you should see `You can login with the password` and a strong,
 1. Wait a few seconds, then run`docker-compose down`
 1. Ensure some critical file permissions are correct:
 
-`sudo chown -R 70:70 ./postgres`
+`sudo chown -R 70:70 ./postgres14`
 
 `sudo chown -R 991:991 ./public`
 
