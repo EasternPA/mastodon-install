@@ -363,4 +363,20 @@ RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@emai
 1. Click the 3 vertical dots next to your username and choose logout at the bottom
 1. Verify that you can log back in with your non-admin username/password
 
-Enjoy your time in the Fediverse!
+# Keepingy your instance up-to-date
+
+Keeping your instance updated is pretty easy with docker and docker-compose.
+
+1. `ssh` into your Oracle Cloud instance
+2. `cd mastodon`
+3. `sudo docker-compose pull`
+4. Wait until all activity completes
+5. `sudo docker-compose stop`
+6. Wait several seconds
+7. `sudo docker-compose start`
+
+Wait up to a minute before reloading the web page or attempting to use the app. If you try too soon, you may see an `error 502` bad gateway when you try to reload the page. Also, use the keyboard shortcut of Ctrl-Shift-R to flush the browser cache for the page before reloading.
+
+That should do it. If you are generally unfamiliar with these tools as a system administrator, you may wish to wait for a few days after major updates have been released, as that gives time for possible bugs to be discovered and addressed.
+
+Enjoy your time in the Fediverse! Don't forget to visit (Fediverse.party)[https://fediverse.party] to see what other apps are out there that can provide the social media connections you're seeking.
