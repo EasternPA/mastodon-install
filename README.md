@@ -363,7 +363,7 @@ RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@emai
 1. Click the 3 vertical dots next to your username and choose logout at the bottom
 1. Verify that you can log back in with your non-admin username/password
 
-# Keepingy your instance up-to-date
+# Keeping your instance up-to-date
 
 Keeping your instance updated is pretty easy with docker and docker-compose.
 
