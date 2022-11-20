@@ -206,6 +206,12 @@ When you see the suggested contents of `.env.production` shown, WAIT
 1. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
 1. Paste in the contents of `.env.production` from the clipboard
 1. Save and exit (`Ctrl-x, y, <Enter>` in `nano` or `<Esc>:wq<Enter>` in `vi`)
+1. `sudo docker-compose run --rm web bundle exec rake secret`
+1. Copy the secret into the clipboard
+1. Open `.env.production` again for editing
+1. Locate the `SECRETS` section
+1. Add another secret called `PAPERCLIP_SECRET=` and paste the value you just created
+1. Save and exit the `.env.production` file
 1. Switch back to your primary `ssh` session
 
 Continue with the setup process
