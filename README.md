@@ -185,15 +185,15 @@ Hit `<Enter>` to accept all of the defauts below:
 1. `Redis password` - hit enter for the default
 1. `Store uploaded files on the cloud?` - hit enter for the default
 
-Email configuration - Continue hitting Enter on the defaults
-3. `Send emails from localhost?` - hit enter for the default
-4. `SMTP server` - hit enter for the default
-5. `SMTP port` - hit enter for the default
-6. `SMTP username` - hit enter for the default
-7. `SMTP password` - hit enter for the default
-8. `SMTP authentication` - hit enter for the default
-9. `SMTP OpenSSL verify mode` - hit enter for the default `none`
-10. Address to use as `From` for notification emails - hit enter for the default
+Email configuration - Continue hitting Enter on the defaults:
+1. `Send emails from localhost?` - hit enter for the default
+1. `SMTP server` - hit enter for the default
+1. `SMTP port` - hit enter for the default
+1. `SMTP username` - hit enter for the default
+1. `SMTP password` - hit enter for the default
+1. `SMTP authentication` - hit enter for the default
+1. `SMTP OpenSSL verify mode` - hit enter for the default `none`
+1. Address to use as `From` for notification emails - hit enter for the default
 
 Hit `n` when asked to send a test e-mail. The configuation above is invalid and will not work. That's okay.
 1. `Send a test e-mail now?` - hit `N` for No
