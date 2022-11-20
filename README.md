@@ -139,8 +139,11 @@ Run `sudo docker-compose --version` and ensure the current version number is ret
 ### Download the source code
 
 1. `git clone https://github.com/mastodon/mastodon.git`
-1. `cd mastodon`
-1. `date | md5sum`
+1. `mv mastodon masotodon-git`
+2. `mkdir mastodon`
+3. `cp mastodon-git/docker-compose.yml mastodon`
+4. `cd mastodon`
+5. `date | md5sum`
 
 You will see output like this:
 
@@ -204,16 +207,17 @@ When you see the suggested contents of `.env.production` shown, WAIT
 
 1. Copy the suggested contents of `.env.production` into the clipboard
 1. Switch to your secondary `ssh` session
-1. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
-1. Paste in the contents of `.env.production` from the clipboard
-1. Save and exit (`Ctrl-x, y, <Enter>` in `nano` or `<Esc>:wq<Enter>` in `vi`)
-1. `sudo docker-compose run --rm web bundle exec rake secret`
-1. Copy the secret into the clipboard
-1. Open `.env.production` again for editing
-1. Locate the `SECRETS` section
-1. Add another secret called `PAPERCLIP_SECRET=` and paste the value you just created
-1. Save and exit the `.env.production` file
-1. Switch back to your primary `ssh` session
+2. `cd mastodon`
+3. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
+4. Paste in the contents of `.env.production` from the clipboard
+5. Save and exit (`Ctrl-x, y, <Enter>` in `nano` or `<Esc>:wq<Enter>` in `vi`)
+6. `sudo docker-compose run --rm web bundle exec rake secret`
+7. Copy the secret into the clipboard
+8. Open `.env.production` again for editing
+9. Locate the `SECRETS` section
+10. Add another secret called `PAPERCLIP_SECRET=` and paste the value you just created
+11. Save and exit the `.env.production` file
+12. Switch back to your primary `ssh` session
 
 Continue with the setup process
 
