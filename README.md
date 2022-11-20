@@ -166,7 +166,8 @@ Next, stop the container:
 Kick off the build:
 1. `touch .env.production`
 1. Open another terminal window and `ssh` into your host again
-1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
+1. Return to your first window
+2. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
 Answer the prompts:
 `Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
