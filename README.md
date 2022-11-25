@@ -143,7 +143,10 @@ Run `sudo docker-compose --version` and ensure the current version number is ret
 2. `mkdir mastodon`
 3. `cp mastodon-git/docker-compose.yml mastodon`
 4. `cd mastodon`
-5. `date | md5sum`
+
+### Initialize the database
+
+1. `date | md5sum`
 
 You will see output like this:
 
@@ -166,11 +169,15 @@ Next, stop the container:
 
 `sudo docker stop postgres14`
 
-Kick off the build:
+### Build the web application
+
+Prepare the configuration file:
 1. `touch .env.production`
 1. Open another terminal window and `ssh` into your host again
 1. Return to your first window
-2. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
+
+Start the web application setup:
+1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
 Answer the prompts:
 `Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
@@ -226,7 +233,7 @@ Continue with the setup process
 
 The setup script will exit.
 
-## Prepare the final build
+### Prepare the final build
 Run `sudo docker-compose up -d && sleep 15 && sudo docker-compose down`
 
 Ensure some critical file permissions are correct:
