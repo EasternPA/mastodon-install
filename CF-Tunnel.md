@@ -168,6 +168,7 @@ Confim on your tunnel configuration page that your public hostname `mstdn.<yourd
 
 If all looks good, open a new browser tab and pull up the web site name you show in your tunnel. You should see a plain Mastodon web page, ready for login. Make sure that you see a closed lock to the left side of the URL for your web site and that no errors are shown relating to the SSL connection.
 
+## Create your accounts
 You will skip over all of the NPM configuration steps in the instructions, and resume the steps at https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#create-your-admin-account
 
 Then, once you have created (and successfully tested logging out AND IN using your Admin credentials), move on to creating a non-Admin userid here https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#create-your-normal-user-account
