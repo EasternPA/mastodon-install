@@ -85,9 +85,9 @@ Note: be sure to use the double chevron `>>` to append the new yaml content to t
 
 open the updated `docker-compose.yml` for editing and locate the top of the content you just appended to the end of the file
 
-delete the duplicate `version` and `services` lines you just copied in
-
 uncomment the last two lines commented out in the `cloudflared` section attaching the container to the network hosting your mastodon website
+
+delete the duplicate `version` and `services` lines you just copied in
 
 leave the `es` section commented out; leave the `tor federation` lines commented out
 
