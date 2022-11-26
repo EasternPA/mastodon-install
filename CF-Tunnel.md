@@ -104,7 +104,7 @@ Note: you are already `root` so you can ignore the `sudo` leading each command i
 Skip down to:
 https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database
 
-## BROKEN - Prepare the Postgres database; fix the pg volume location
+## BROKEN - Prepare the Postgres database
 
 Then follow the steps in  https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database customized here
 
