@@ -126,6 +126,15 @@ docker run --name postgres14 -v /var/snap/docker/common/var-lib-docker/volumes/m
 docker exec -it postgres14 psql -U postgres
 ```
 
+At the `postgres=#` command line, run:
+
+`CREATE USER mastodon WITH PASSWORD '<pg pwd>' CREATEDB;`
+
+Note: include the single quotes `'` in the above command. Look for `CREATE ROLE` in the response. If successful, type `exit`.
+
+Next, stop the container:
+
+`sudo docker stop postgres14`
 
 Skip the 'prepare the final build' section
 
