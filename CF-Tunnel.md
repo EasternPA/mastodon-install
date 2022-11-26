@@ -54,6 +54,7 @@ services:
       - TUNNEL_TOKEN=${CFTOKEN}
 #    networks:
 #      - external_network
+
 ```
 
 Note that the `networks:` block is commented out because the named network doesn't exist yet.
