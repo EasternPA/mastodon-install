@@ -89,7 +89,7 @@ uncomment the last two lines commented out in the `cloudflared` section attachin
 
 delete the lines beginning with `version` and `services` immediately below the `cloudflared` section
 
-leave the `es` section commented out; leave the `tor federation` lines commented out
+comment out the `build: .` line in the `web`, `streaming`, and `sidekiq` blocks
 
 save and exit the updated docker-compose.yml
 
@@ -100,7 +100,7 @@ Note: you are already `root` so you can ignore the `sudo` leading each command i
 Skip down to:
 https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database
 
-## BROKEN - Prepare the Postgres database
+## BROKEN - Prepare the Postgres database; fix the pg volume location
 
 Then follow the steps in  https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database customized here
 
