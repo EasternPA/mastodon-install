@@ -89,6 +89,10 @@ uncomment the last two lines commented out in the `cloudflared` section attachin
 
 delete the lines beginning with `version` and `services` immediately below the `cloudflared` section
 
+change the volume in `db` and `redis` to use the `pg` and `rd` named volumes instead of relative paths
+
+also change the volume in `web` and `sidekiq` to use the `publicsys` named volume, not the relative path
+
 comment out the `build: .` line in the `web`, `streaming`, and `sidekiq` blocks
 
 save and exit the updated docker-compose.yml
