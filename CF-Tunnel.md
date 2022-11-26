@@ -102,7 +102,14 @@ https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize
 
 ## BROKEN - Need to determine where the Postgres database will reside
 
-Then follow the steps in  https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database
+Then follow the steps in  https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database customized here
+
+```
+date | md5sum
+docker run --name postgres14 -v /var/snap/docker/common/var-lib-docker/volumes/mastodon_pg/_data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<md5sum output> --rm -d postgres:14-alpine
+sudo docker exec -it postgres14 psql -U postgres
+```
+
 
 Skip the 'prepare the final build' section
 
