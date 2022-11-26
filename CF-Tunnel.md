@@ -134,7 +134,7 @@ Note: include the single quotes `'` in the above command. Look for `CREATE ROLE`
 
 Next, stop the container:
 
-`sudo docker stop postgres14`
+`docker stop postgres14`
 
 Skip the 'prepare the final build' section
 
