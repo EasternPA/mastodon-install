@@ -69,7 +69,7 @@ cd ~/Downloads
 git clone https://github.com/mastodon/mastodon.git  
 sudo su -
 cd /var/snap/docker/common/var-lib-docker/volumes
-find -name docker-compose
+find -name docker-compose.yml
 ```
 
 locate the docker-compose.yml representing the stack you are currently building in /var/snap/docker/common/var-lib-docker/volumes/<x>/_data/compose/<y>
