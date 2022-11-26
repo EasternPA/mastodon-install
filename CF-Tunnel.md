@@ -104,9 +104,7 @@ Note: you are already `root` so you can ignore the `sudo` leading each command i
 Skip down to:
 https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database
 
-## BROKEN - Prepare the Postgres database
-
-Then follow the steps in  https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database customized here
+## Initialize database
 
 ```
 touch .env.production
@@ -138,7 +136,7 @@ Next, stop the container:
 
 Skip the 'prepare the final build' section
 
-Follow the steps in  https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database
+Follow the steps in https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#build-the-web-application
 
 Skip the steps to add NPM to your stack
 Skip the steps to get a certificate from Let's Encrypt
