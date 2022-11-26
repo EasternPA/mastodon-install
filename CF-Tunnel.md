@@ -72,7 +72,7 @@ cd /var/snap/docker/common/var-lib-docker/volumes
 find -name docker-compose.yml
 ```
 
-locate the docker-compose.yml representing the stack you are currently building in /var/snap/docker/common/var-lib-docker/volumes/<x>/_data/compose/<y>
+locate the `docker-compose.yml` representing the stack you are currently building in `/var/snap/docker/common/var-lib-docker/volumes/<x>/_data/compose/<y>`
 
 where `<x>` is a very long hex string representing the docker volume and `<y>` is a small number representing which stack you are managing with portainer.
 
