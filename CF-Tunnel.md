@@ -134,12 +134,15 @@ Next, stop the container:
 
 `docker stop postgres14`
 
-Skip the 'prepare the final build' section
+## Build the web application
 
 Follow the steps in https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#build-the-web-application
 
-Skip the steps to add NPM to your stack
-Skip the steps to get a certificate from Let's Encrypt
+- Skip the 'prepare the final build' section
+- Skip the steps to add NPM to your stack
+- Skip the steps to get a certificate from Let's Encrypt
+
+## Configure the tunnel forwarding
 
 Go to portainer and refresh the page showing your stack
 
