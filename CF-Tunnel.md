@@ -25,7 +25,7 @@ find -name docker-compose | grep cli-plugins
 cp /snap/docker/<x>/usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin
 ```
 
-Note that '<x>' will vary on each install
+Note that `<x>` will vary on each install
 
 - Return to the portainer session in your web browser
 - click Stacks from the main menu
@@ -70,11 +70,11 @@ find -name docker-compose
 
 locate the docker-compose.yml representing the stack you are currently building in /var/snap/docker/common/var-lib-docker/volumes/<x>/_data/compose/<y>
 
-where '<x>' is a very long hex string representing the docker volume and '<y>' is a small number representing which stack you are managing with portainer.
+where `<x>` is a very long hex string representing the docker volume and `<y>` is a small number representing which stack you are managing with portainer.
 
 `cd` into the folder with the new stack's `docker-compose.yml`
 
-`cat ~/Downloads/docker-compose.yml >> docker-compose.yml`
+`cat ~/Downloads/mastodon/docker-compose.yml >> docker-compose.yml`
 
 Note: be sure to use the double chevron `>>` to append the new yaml content to the end of the existing file
 
