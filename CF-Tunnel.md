@@ -100,6 +100,8 @@ Note: you are already `root` so you can ignore the `sudo` leading each command i
 Skip down to:
 https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database
 
+## BROKEN - Need to determine where the Postgres database will reside
+
 Then follow the steps in  https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database
 
 Skip the 'prepare the final build' section
