@@ -33,7 +33,7 @@ Note that `<x>` will vary on each install
 
 - Return to the portainer session in your web browser
 - click Stacks from the main menu
-- click New Stack
+- click `+ Add Stack`
 - name it `mastodon` and copy this block to start a new portainer stack:
 
 ```
