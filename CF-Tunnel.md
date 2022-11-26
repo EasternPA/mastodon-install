@@ -78,7 +78,7 @@ where `<x>` is a very long hex string representing the docker volume and `<y>` i
 
 `cd` into the folder with the new stack's `docker-compose.yml`
 
-`cat ~/Downloads/mastodon/docker-compose.yml >> docker-compose.yml`
+`cat ~<your non-root username>/Downloads/mastodon/docker-compose.yml >> docker-compose.yml`
 
 Note: be sure to use the double chevron `>>` to append the new yaml content to the end of the existing file
 
