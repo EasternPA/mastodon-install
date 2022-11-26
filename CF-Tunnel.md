@@ -164,7 +164,7 @@ Locate the URL field and replace 192.168.1.2 with the 172. (or 192.168) address 
 
 Click Save hostname at the bottom
 
-Confim on your tunnel configuration page that your public hostname 'mstdn.<yourdomain.tld> points to the service at 'http://172.x.y.z:4000' 
+Confim on your tunnel configuration page that your public hostname `mstdn.<yourdomain.tld>` with no path points to the IP for your `web` container on port 3000 and `/api/v1/streaming` points to your `streaming` container on port 4000
 
 If all looks good, open a new browser tab and pull up the web site name you show in your tunnel. You should see a plain Mastodon web page, ready for login. Make sure that you see a closed lock to the left side of the URL for your web site and that no errors are shown relating to the SSL connection.
 
