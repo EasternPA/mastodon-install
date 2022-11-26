@@ -146,15 +146,21 @@ Follow the steps in https://github.com/EasternPA/mastodon-install/blob/gh-pages/
 
 Go to portainer and refresh the page showing your stack
 
-Locate the internal IP address of your 'streaming' container in the stack (usually begins with 172., but may also be a 192.168. network you have not seen before, this is ok)
+Locate the IP address of your `cloudflared` container. Note the subnet.
+
+Locate the internal IP address of your `web` container in the same subnet as the `cloudflared` container. This usually begins with 172., but may also be a 192.168.x.y address with a high number for `x`.
 
 Pull up your Cloudflare Tunnels dashboard and click configure next to the tunnel you created
 
-Click "public hostname" under the tunnel name on the main menu
+Click `Public hostname` under the tunnel name on the main menu
 
-Click "Edit" at the right end of your tunnel definition
+Click `Edit` at the right end of your tunnel definition
 
-Locate the URL field and replace 192.168.1.2 with the 172. (or 192.168) address that portainer showed for your 'streaming' container
+Locate the URL field and replace 192.168.1.2 with the 172. (or 192.168) address that portainer showed for your 'web' container
+
+- Click `Add a public hostname`. 
+- Enter the same `mstdn.<yourdomain.tld>` for the hostname but enter `/api/v1/streaming` for the `Path`
+- Locate the IP address for your `streaming` container on port 4000
 
 Click Save hostname at the bottom
 
