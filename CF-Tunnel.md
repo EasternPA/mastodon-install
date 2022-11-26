@@ -87,7 +87,7 @@ open the updated `docker-compose.yml` for editing and locate the top of the cont
 
 uncomment the last two lines commented out in the `cloudflared` section attaching the container to the network hosting your mastodon website
 
-delete the duplicate `version` and `services` lines you just copied in
+delete the lines beginning with `version` and `services` immediately below the `cloudflared` section
 
 leave the `es` section commented out; leave the `tor federation` lines commented out
 
