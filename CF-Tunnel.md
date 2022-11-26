@@ -117,6 +117,11 @@ to establish the volumes, then
 
 ```
 date | md5sum
+```
+
+copy the md5sum output (not the `space` and `-`) into the clipboard, then
+
+```
 docker run --name postgres14 -v /var/snap/docker/common/var-lib-docker/volumes/mastodon_pg/_data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<md5sum output> --rm -d postgres:14-alpine
 sudo docker exec -it postgres14 psql -U postgres
 ```
