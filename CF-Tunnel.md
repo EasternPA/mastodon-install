@@ -1,3 +1,7 @@
+# Self-host Mastodon at home using CloudFlare Tunnels
+
+## Note: This is a work-in-progress where I am documenting the process of figuring this out
+
 You will need:
 - a paid domain name that works with Let's Encrypt
 - Migrate the DNS management of the domain to Cloudflare
