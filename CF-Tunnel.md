@@ -95,6 +95,8 @@ save and exit the updated docker-compose.yml
 
 resume the normal instructions from https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md
 
+Note: you are already `root` so you can ignore the `sudo` leading each command in the instructions
+
 Skip down to:
 https://github.com/EasternPA/mastodon-install/blob/gh-pages/README.md#initialize-the-database
 
