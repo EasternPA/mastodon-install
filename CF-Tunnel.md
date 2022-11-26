@@ -1,31 +1,38 @@
-You will need a paid domain name that works with Let's Encrypt
-Migrate the DNS management of the domain to Cloudflare
+You will need:
+- a paid domain name that works with Let's Encrypt
+- Migrate the DNS management of the domain to Cloudflare
 
 Open the Cloudflare One dashboard, click Access, then Tunnels, and click create a tunnel
 
-Name the tunnel 'mastodon.'
+Name the tunnel `mastodon`.
 
 Locate the id token in the install instructions. You don't need it yet, but make sure you can find it because you will need it later. Click Next at the bottom.
 
-Enter "mstdn" as the public hostname and choose your Domain from the dropdown list in the Domain field.
+Enter `mstdn` as the public hostname and choose your Domain from the dropdown list in the Domain field.
 
-Under Service / Type, choose HTTP and enter a temporary URL of 192.168.1.2:4000. 
+Under Service / Type, choose `HTTP` and enter a temporary URL of `192.168.1.2:4000`. 
 
 Now, open two ssh sessions on the target host
+
 Select your primary session
 
-Use these steps to locate the docker-compose installed with docker-compose and copy it into /usr/local/bin:
+Use these steps to locate the docker-compose installed with docker-compose and copy it into `/usr/local/bin`:
 
+```
 sudo su -
 cd /snap/docker
 find -name docker-compose | grep cli-plugins
 cp /snap/docker/<x>/usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin
+```
 
 Note that '<x>' will vary on each install
 
-Return to the portainer session in your web browser, and click Stacks from the main menu. Click New Stack, name it "mastodon" and copy this block (in between but not including the '---' lines) to start a new portainer stack:
+- Return to the portainer session in your web browser
+- click Stacks from the main menu
+- click New Stack
+- name it `mastodon` and copy this block to start a new portainer stack:
 
----
+```
 version: "3"
 name: "mastodon"
 volumes:
@@ -43,37 +50,41 @@ services:
       - TUNNEL_TOKEN=${CFTOKEN}
 #    networks:
 #      - external_network
----
+```
 
-Note that the 'networks:' block is commented out because it doesn't exist yet.
+Note that the `networks:` block is commented out because the named network doesn't exist yet.
 
-Create a variable in the variables section below the stack yml called CFTOKEN and copy/paste the Cloudflare tunnel token id for the tunnel you created earlier
+Create a variable in the variables section below the stack yml called `CFTOKEN` and copy/paste the Cloudflare tunnel token id for the tunnel you created earlier
 
 Deploy the stack. This establishes the directory structure on the host.
 
 Return to your primary ssh session
 
+```
 cd ~/Downloads
-git clone https://github.com/mastodon/mastodon.git
-
+git clone https://github.com/mastodon/mastodon.git  
 sudo su -
+cd /var/snap/docker/common/var-lib-docker/volumes
+find -name docker-compose
+```
+
 locate the docker-compose.yml representing the stack you are currently building in /var/snap/docker/common/var-lib-docker/volumes/<x>/_data/compose/<y>
 
 where '<x>' is a very long hex string representing the docker volume and '<y>' is a small number representing which stack you are managing with portainer.
 
-cd into the folder with the new stack's docker-compose.yml
+`cd` into the folder with the new stack's `docker-compose.yml`
 
-cat ~/Downloads/docker-compose.yml >> docker-compose.yml
+`cat ~/Downloads/docker-compose.yml >> docker-compose.yml`
 
-Note: be sure to use the double chevron ">>" to append the new yaml content to the end of the existing file
+Note: be sure to use the double chevron `>>` to append the new yaml content to the end of the existing file
 
-open the updated docker-compose.yml for editing and locate the top of the content you just appended to the end of the file
+open the updated `docker-compose.yml` for editing and locate the top of the content you just appended to the end of the file
 
-delete the duplicate "version" and "services" lines you just copied in
+delete the duplicate `version` and `services` lines you just copied in
 
-uncomment the last two lines commented out in the 'cloudflared' section attaching the container to the network hosting your mastodon website
+uncomment the last two lines commented out in the `cloudflared` section attaching the container to the network hosting your mastodon website
 
-leave the es section commented out; leave the tor federation commented out
+leave the `es` section commented out; leave the `tor federation` lines commented out
 
 save and exit the updated docker-compose.yml
 
