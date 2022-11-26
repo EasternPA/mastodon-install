@@ -111,6 +111,11 @@ Then follow the steps in  https://github.com/EasternPA/mastodon-install/blob/gh-
 ```
 touch .env.production
 docker-compose up -d && sleep 15 && docker-compose down
+```
+
+to establish the volumes, then
+
+```
 date | md5sum
 docker run --name postgres14 -v /var/snap/docker/common/var-lib-docker/volumes/mastodon_pg/_data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=<md5sum output> --rm -d postgres:14-alpine
 sudo docker exec -it postgres14 psql -U postgres
