@@ -14,7 +14,9 @@ Locate the id token in the install instructions. You don't need it yet, but make
 
 Enter `mstdn` as the public hostname and choose your Domain from the dropdown list in the Domain field.
 
-Under Service / Type, choose `HTTP` and enter a temporary URL of `192.168.1.2:4000`. 
+Under Service / Type, choose `HTTP` and enter `web:3000` for the service URL.
+
+Add another public hostname. Choose `HTTP` as the protocol, change the Path to `/api/v1/streaming`, and enter `streaming:4000` for the service URL.
 
 Now, open two ssh sessions on the target host
 
@@ -142,29 +144,7 @@ Follow the steps in https://github.com/EasternPA/mastodon-install/blob/gh-pages/
 - Skip the steps to add NPM to your stack
 - Skip the steps to get a certificate from Let's Encrypt
 
-## Configure the tunnel forwarding
-
-Go to portainer and refresh the page showing your stack
-
-Locate the IP address of your `cloudflared` container. Note the subnet.
-
-Locate the internal IP address of your `web` container in the same subnet as the `cloudflared` container. This usually begins with 172., but may also be a 192.168.x.y address with a high number for `x`.
-
-Pull up your Cloudflare Tunnels dashboard and click configure next to the tunnel you created
-
-Click `Public hostname` under the tunnel name on the main menu
-
-Click `Edit` at the right end of your tunnel definition
-
-Locate the URL field and replace 192.168.1.2 with the 172. (or 192.168) address that portainer showed for your 'web' container
-
-- Click `Add a public hostname`. 
-- Enter the same `mstdn.<yourdomain.tld>` for the hostname but enter `/api/v1/streaming` for the `Path`
-- Locate the IP address for your `streaming` container on port 4000
-
-Click Save hostname at the bottom
-
-Confim on your tunnel configuration page that your public hostname `mstdn.<yourdomain.tld>` with no path points to the IP for your `web` container on port 3000 and `/api/v1/streaming` points to your `streaming` container on port 4000
+## Pull up the web interface
 
 If all looks good, open a new browser tab and pull up the web site name you show in your tunnel. You should see a plain Mastodon web page, ready for login. Make sure that you see a closed lock to the left side of the URL for your web site and that no errors are shown relating to the SSL connection.
 
