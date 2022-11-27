@@ -352,7 +352,7 @@ volumes:
 1. At the container command prompt, run:
 
 ```
-RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Admin
+RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Owner
 ``` 
 
 {:start="3"}
