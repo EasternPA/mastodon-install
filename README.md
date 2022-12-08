@@ -50,6 +50,7 @@ Note: You must set `Shields Down` for this site if you use the _Brave_ browser. 
 1. Select the only shape available on the `Shape name` list
 1. Configure it with a minimum of 1 CPU and 6 GB RAM; use more if you will host several users
 1. Click `Select Shape` at the bottom
+1. Note you may need to create a new virtual cloud network and a new public subnet if this the first time you have created a compute instance.  If so, choose create a new virtual cloud network and create a new public subnet, give each of them a name, and ensure that Assign a public IPv4 address is selected.  Otherwise, it should default to Select existing virtual cloud network and Select existing subnet.
 1. Scroll down beyond the `Networking` section of the configuration panel
 1. Upload the public keyfile you generated for SSH logins (located at `~/.ssh/id_rsa.pub`)
 1. Click `Create` at the bottom
@@ -80,7 +81,7 @@ Note: You must set `Shields Down` for this site if you use the _Brave_ browser. 
 1. `ssh ubuntu@mstdn.<mydomain.tld>` (replace `<mydomain.tld>` with the domain you purchased)
 Note that if the name fails to resolve within 10 minutes after updating your DNS, double check your work at Cloudflare
 
-1. `sudo apt update && sudo apt upgrade -y`
+1. `sudo apt update && sudo apt dist-upgrade -y`
 1. Once the upgrade completes, hit enter on `Ok` then `<tab>` and `<enter>` on the next screen
 1. `sudo reboot`
 1. Wait about 45 seconds for the server to reboot and log back in with `ssh ubuntu@mstdn.mydomain.com` (again, replacing `mydomain.com`)
@@ -96,7 +97,20 @@ Configure firewall:
 1. `sudo ufw enable`
 1. `sudo ufw allow http`
 1. `sudo ufw allow https`
-1. `sudo ufw status` to verify the ufw status
+1. `sudo ufw status`
+
+to verify the ufw status
+
+### Check Ingress rules if you set up a virtual cloud network for the first time.
+Ensure that you have IPv4 https ingress enabled for your virtual cloud network.  In Oracle Cloud, from the main menu
+1. Choose Networking
+1. Select Virtual Cloud Networks
+1. Click on the virtual cloud network you previously created
+1. Click on the subnet you previously created
+1. Click on the Default Security List for the virtual cloud network.
+1. Select Ingress Rules on the left if Ingress Rules are not already displayed
+1. Click on Add Ingress Rules
+1. Choose Stateless, CIDR, 0.0.0.0/0, TCP, All (blank), 443, https, and click on Add Ingress Rule
 
 Install docker for linux as per the instructions at https://docs.docker.com/engine/install/ubuntu/
 
@@ -130,11 +144,14 @@ Run `docker compose version` and ensure the current version number is returned
 
 ## Install `mastodon`
 
-### Download the mastodon source code
+### Download and edit the mastodon docker compose
 
 1. `mkdir mastodon`
-4. `cd mastodon`
-5. `wget https://raw.githubusercontent.com/mastodon/mastodon/main/docker-compose.yml`
+1. `cd mastodon`
+1. `wget https://raw.githubusercontent.com/mastodon/mastodon/main/docker-compose.yml`
+1. `nano docker-compose.yml`
+1. Comment out each of the build . lines by prefixing them with a #
+1. Save and Exit ^S ^X
 
 ### Initialize the database
 
@@ -217,7 +234,7 @@ When you see the suggested contents of `.env.production` shown, WAIT
 3. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
 4. Paste in the contents of `.env.production` from the clipboard
 5. Save and exit (`Ctrl-x, y, <Enter>` in `nano` or `<Esc>:wq<Enter>` in `vi`)
-6. `sudo docker-compose run --rm web bundle exec rake secret`
+6. `sudo docker compose run --rm web bundle exec rake secret`
 7. Copy the secret into the clipboard
 8. Open `.env.production` again for editing
 9. Locate the `SECRETS` section
@@ -233,7 +250,7 @@ Continue with the setup process
 The setup script will exit.
 
 ### Prepare the final build
-Run `sudo docker-compose up -d && sleep 15 && sudo docker-compose down`
+Run `sudo docker compose up -d && sleep 15 && sudo docker compose down`
 
 Ensure some critical file permissions are correct:
 
@@ -242,9 +259,9 @@ Ensure some critical file permissions are correct:
 `sudo chown -R 991:991 ./public`
 
 ## Stand up the mastodon stack
-`sudo docker-compose up -d`
+`sudo docker compose up -d`
 
-## Add NPM to your `docker-compose` stack
+## Add NPM to your `docker compose` stack
 
 1. Run `date | md5sum` twice to generate two new passwords: one for the NPM MySQL root account and one for the database
 1. Edit the `docker-compose.yml` with `vi` or `nano`, whichever you prefer
@@ -292,7 +309,7 @@ volumes:
 ```
 
 1. Save and exit
-1. Run `docker-compose up -d` to add `NPM` services to your stack
+1. Run `docker compose up -d` to add `NPM` services to your stack
 1. Run the `exit` command to logout of the server instance
 1. Run `ssh` to log back in, but add `-L 8081:localhost:81` to the end of the ssh command line. This will let you configure `NPM` via the web UI.
 1. Pull up `http://localhost:8081` in your browser
@@ -382,15 +399,15 @@ RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@emai
 
 # Keeping your instance up-to-date
 
-Keeping your instance updated is pretty easy with docker and docker-compose.
+Keeping your instance updated is pretty easy with docker and docker compose.
 
 1. `ssh` into your Oracle Cloud instance
 2. `cd mastodon`
-3. `sudo docker-compose pull`
+3. `sudo docker compose pull`
 4. Wait until all activity completes
-5. `sudo docker-compose stop`
+5. `sudo docker compose stop`
 6. Wait several seconds
-7. `sudo docker-compose start`
+7. `sudo docker compose start`
 
 Wait up to a minute before reloading the web page or attempting to use the app. If you try too soon, you may see an `error 502` bad gateway when you try to reload the page. Also, use the keyboard shortcut of Ctrl-Shift-R to flush the browser cache for the page before reloading.
 
