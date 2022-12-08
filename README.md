@@ -188,13 +188,6 @@ Prepare the configuration file:
 Start the web application setup:
 1. `sudo docker compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
-Note: this may fail with the following error - it did while I was running these instructions - if it does, just re-run the command and it should run succesfully
-```
- => CANCELED [internal] load .dockerignore                                                                                           0.0s
- => => transferring context:                                                                                                         0.0s
-failed to solve: rpc error: code = Unknown desc = failed to solve with frontend dockerfile.v0: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount2894783255/Dockerfile: no such file or directory
-```
-
 Answer the prompts:
 `Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
 
