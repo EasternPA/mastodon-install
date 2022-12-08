@@ -189,7 +189,7 @@ Start the web application setup:
 1. `sudo docker compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
 Answer the prompts:
-`Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
+- `Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
 
 Hit `<Enter>` to accept all of the defauts below:
 1. `Single user mode` - hit enter for `(N)o`
@@ -237,7 +237,7 @@ When you see the suggested contents of `.env.production` shown, WAIT
 
 Continue with the setup process
 
-1. `Prepare the database now?` - Hit enter for `(Y)es`. You should `Done!` after a few seconds.
+1. `Prepare the database now?` - Hit enter for `(Y)es`. You should see `Done!` after a few seconds.
 1. `Create an admin user?` - Hit `n` for `(N)o` and hit enter
 
 The setup script will exit.
@@ -364,7 +364,7 @@ volumes:
 RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@email> --role=Owner
 ``` 
 
-{:start="3"}
+{:start="4"}
 1. Look for `OK` and your password. SAVE THE PASSWORD.
 1. `RAILS_ENV=production bin/tootctl accounts modify admin2 --confirm`
 1. Look for 'OK'
