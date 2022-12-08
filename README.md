@@ -150,9 +150,10 @@ Run `docker compose version` and ensure the current version number is returned
 1. `mkdir mastodon`
 1. `cd mastodon`
 1. `wget https://raw.githubusercontent.com/mastodon/mastodon/main/docker-compose.yml`
-1. `nano docker-compose.yml`
-1. Comment out each of the build . lines by prefixing them with a #
-1. Save and Exit ^S ^X
+1. `touch Dockerfile`
+1. Optional: Open `docker-compose.yml` for editing using `vi` or `nano`, whichever you're comfortable using
+1. Comment out each of the `Build: .` lines by prefixing them with a `#`
+1. Save your changes and exit from your editor (`Ctrl-s, Ctrl-x` for `nano` or `<Esc>:wq<Enter>` for `vi`
 
 ### Initialize the database
 
@@ -227,7 +228,7 @@ When you see the suggested contents of `.env.production` shown, WAIT
 2. `cd mastodon`
 3. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
 4. Paste in the contents of `.env.production` from the clipboard
-5. Save and exit (`Ctrl-x, y, <Enter>` in `nano` or `<Esc>:wq<Enter>` in `vi`)
+5. Save and exit (`Ctrl-s, Ctrl-x` in `nano` or `<Esc>:wq<Enter>` in `vi`)
 6. `sudo docker compose run --rm web bundle exec rake secret`
 7. Copy the secret into the clipboard
 8. Open `.env.production` again for editing
