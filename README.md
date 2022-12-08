@@ -180,8 +180,7 @@ Start the web application setup:
 1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
 
 Answer the prompts:
-
-`Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
+- `Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
 
 Hit `<Enter>` to accept all of the defauts below:
 1. `Single user mode` - hit enter for `(N)o`
