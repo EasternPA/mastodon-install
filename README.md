@@ -1,5 +1,5 @@
 # mastodon-install
-Instructions for hosting a small Mastodon server instance for free (well, *almost*) using docker-compose
+Instructions for hosting a small Mastodon server instance for free (well, *almost*) using docker compose
 
 # Introduction
 
@@ -98,51 +98,43 @@ Configure firewall:
 1. `sudo ufw allow https`
 1. `sudo ufw status` to verify the ufw status
 
+Install docker for linux as per the instructions at https://docs.docker.com/engine/install/ubuntu/
+
 Add the GPG key for the `docker` repository to apt:
 
-`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
-
-Verify the GPG key was successfully added:
-
-`sudo apt-key fingerprint 0EBFCD88`
-
-Look for this output in return:
 ```
-pub   rsa4096 2017-02-22 [SCEA]
-      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid           [ unknown] Docker Release (CE deb) <docker@docker.com>
-sub   rsa4096 2017-02-22 [S]
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 ```
 
-Add the `docker` repository for the `arm` architecture:
-
-`sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
-
-Note: I do not like to add my non-root user to the docker group as this grants broad powers to the user. Just use `sudo` for commands that require `root` privileges, such as `docker` and `docker-compose`.
-
-Install `docker-compose`:
-1. Go to `https://github.com/docker/compose` in your browser
-1. Click `tags` above the top of the source code files
-1. Take note of the most recent release (currently v2.12.2)
-
-Copy and paste the following line into your terminal, replacing "2.12.2" with the current release:
+Add the `docker` repository:
 
 ```
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-Run `sudo docker-compose --version` and ensure the current version number is returned
+Update the package index
+
+`sudo apt-get update`
+
+Note: I do not like to add my non-root user to the docker group as this grants broad powers to the user. Just use `sudo` for commands that require `root` privileges, such as `docker` and `docker compose`.
+
+Install Docker Engine, containerd, and Docker Compose:
+`sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin`
+
+Run `sudo docker run hello-world` and check that docker hello world runs
+
+Run `docker compose version` and ensure the current version number is returned
 
 ## Install `mastodon`
 
-### Download the source code
+### Download the mastodon source code
 
-1. `git clone https://github.com/mastodon/mastodon.git`
-1. `mv mastodon masotodon-git`
-2. `mkdir mastodon`
-3. `cp mastodon-git/docker-compose.yml mastodon`
+1. `mkdir mastodon`
 4. `cd mastodon`
+5. `wget https://raw.githubusercontent.com/mastodon/mastodon/main/docker-compose.yml`
 
 ### Initialize the database
 
@@ -177,7 +169,14 @@ Prepare the configuration file:
 1. Return to your first window
 
 Start the web application setup:
-1. `sudo docker-compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
+1. `sudo docker compose run --rm -e DISABLE_DATABASE_ENVIRONMENT_CHECK=1 web bundle exec rake mastodon:setup`
+
+Note: this may fail with the following error - it did while I was running these instructions - if it does, just re-run the command and it should run succesfully
+```
+ => CANCELED [internal] load .dockerignore                                                                                           0.0s
+ => => transferring context:                                                                                                         0.0s
+failed to solve: rpc error: code = Unknown desc = failed to solve with frontend dockerfile.v0: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount2894783255/Dockerfile: no such file or directory
+```
 
 Answer the prompts:
 `Domain name:` - enter `mstdn.<yourdomain.tld>` replacing `<yourdomain.tld>` with the domain name you purchased
