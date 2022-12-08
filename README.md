@@ -228,7 +228,7 @@ When you see the suggested contents of `.env.production` shown, WAIT
 
 Continue with the setup process
 
-1. `Prepare the database now?` - Hit enter for `(Y)es`. You should `Done!` after a few seconds.
+1. `Prepare the database now?` - Hit enter for `(Y)es`. You should see `Done!` after a few seconds.
 1. `Create an admin user?` - Hit `n` for `(N)o` and hit enter
 
 The setup script will exit.
@@ -293,7 +293,7 @@ volumes:
 ```
 
 1. Save and exit
-1. Run `docker-compose up -d` to add `NPM` services to your stack
+1. Run `sudo docker-compose up -d` to add `NPM` services to your stack
 1. Run the `exit` command to logout of the server instance
 1. Run `ssh` to log back in, but add `-L 8081:localhost:81` to the end of the ssh command line. This will let you configure `NPM` via the web UI.
 1. Pull up `http://localhost:8081` in your browser
