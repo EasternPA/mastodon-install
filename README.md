@@ -39,6 +39,18 @@ Cloudflare will give you the two DNS servers assigned to manage your account. Th
 
 Note: You must set `Shields Down` for this site if you use the _Brave_ browser. The website will not function properly with the shields up.
 
+## Setup Ingress rules the first time you set up a virtual cloud network
+Ensure that you have IPv4 https ingress enabled for your virtual cloud network.  In Oracle Cloud, from the main menu
+1. Choose Networking
+1. Select Virtual Cloud Networks
+1. Click on the virtual cloud network you previously created
+1. Click on the subnet you previously created
+1. Click on the Default Security List for the virtual cloud network.
+1. Select Ingress Rules on the left if Ingress Rules are not already displayed
+1. Click on Add Ingress Rules
+1. Choose Stateless, CIDR, 0.0.0.0/0, TCP, All (blank), 443, https, and click on Add Ingress Rule
+
+
 ## Create an AlwaysFree instance on Oracle Cloud
 1. Change the name of the instance to `mastodon` if you do not plan to host other Fedi services; use `fediverse` if you do
 1. Click `Edit` in the `Image and Shape` section
@@ -100,17 +112,6 @@ Configure firewall:
 1. `sudo ufw status`
 
 to verify the ufw status
-
-### Check Ingress rules if you set up a virtual cloud network for the first time.
-Ensure that you have IPv4 https ingress enabled for your virtual cloud network.  In Oracle Cloud, from the main menu
-1. Choose Networking
-1. Select Virtual Cloud Networks
-1. Click on the virtual cloud network you previously created
-1. Click on the subnet you previously created
-1. Click on the Default Security List for the virtual cloud network.
-1. Select Ingress Rules on the left if Ingress Rules are not already displayed
-1. Click on Add Ingress Rules
-1. Choose Stateless, CIDR, 0.0.0.0/0, TCP, All (blank), 443, https, and click on Add Ingress Rule
 
 Install docker for linux as per the instructions at https://docs.docker.com/engine/install/ubuntu/
 
