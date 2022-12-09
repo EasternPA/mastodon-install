@@ -151,9 +151,8 @@ Run `docker compose version` and ensure the current version number is returned
 1. `cd mastodon`
 1. `wget https://raw.githubusercontent.com/mastodon/mastodon/main/docker-compose.yml`
 1. Open `docker-compose.yml` for editing using `vi` or `nano`, whichever you're comfortable using
-1. Comment out each of the `build: .` lines by prefixing them with a `#`
-1. Save your changes and exit from your editor (`Ctrl-s, Ctrl-x` for `nano` or `<Esc>:wq<Enter>` for `vi`
-
+1. Comment out each line with `build: .`: `sed -i 's/build: ./#build: ./' docker-compose.yml`
+2. 
 ### Initialize the database
 
 1. `date | md5sum`
