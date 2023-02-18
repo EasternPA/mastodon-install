@@ -15,6 +15,8 @@ https://www.howtoforge.com/how-to-install-mastodon-social-network-with-docker-on
 
 https://sleeplessbeastie.eu/2022/05/02/how-to-take-advantage-of-docker-to-install-mastodon/
 
+https://mpp-service.de/en/mastodon-character-limit-increase-in-a-docker-environment/
+
 # Assumptions
 Familiarity with Linux, domain registration, DNS management, and web hosting, including SSL encryption.
 
@@ -389,6 +391,29 @@ RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@emai
 1. You should already be logged in with your non-admin user
 1. Click the 3 vertical dots next to your username and choose logout at the bottom
 1. Verify that you can log back in with your non-admin username/password
+
+# Increasing the toot character limit.
+
+Many instances allow more than 500 characters for a toot, but Mastodon does not allow this out of the box, and this isn't configurable.
+
+However, it is fairly straightforward to increase the limit on a standard docker install (and, if you've got to this point, you have a standard docker install), so if you want a higher character limit, then this next option is for you.
+
+1. Make sure you are in your mastodon directory `cd mastodon`
+2. Edit a script with your favorite editor - if you are going to make your character limit 2000, name your script 2000.sh, for example
+3. Edit the `2000.sh` with `vi` or `nano`, whichever you prefer e.g. `nano 2000.sh`
+4. Paste in the following contents, and save the file (change 2000 to 5000 if you choose a 5000 character limit in the lines 2 and 3 below)
+```
+#!/bin/bash
+sudo docker compose exec web sed -i 's/500/2000/g' app/javascript/mastodon/features/compose/components/compose_form.js
+sudo docker compose exec web sed -i 's/500/2000/g' app/validators/status_length_validator.rb
+sudo docker compose exec web sed -i 's/:registrations/:registrations, :max_toot_chars /g' app/serializers/rest/instance_serializer.rb
+sudo docker compose exec web sed -i 's/private/def max_toot_chars\n 2000\n end\n\n private/g' app/serializers/rest/instance_serializer.rb
+sudo docker compose exec web bundle exec rails assets:precompile && echo "pass" || echo "fail"
+sudo docker compose restart
+``` 
+6. Make the script executable with `chmod +x 2000.sh`
+7. Run the script with `sudo .\2000.sh`
+8. Wait about a minute for your Mastodon instance to restart, and enjoy longer toots.
 
 # Keeping your instance up-to-date
 
