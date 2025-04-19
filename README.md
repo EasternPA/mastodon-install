@@ -214,10 +214,13 @@ Email configuration - Continue hitting Enter on the defaults:
 1. `SMTP password` - hit enter for the default
 1. `SMTP authentication` - hit enter for the default
 1. `SMTP OpenSSL verify mode` - hit enter for the default `none`
+1. `Enable STARTTLS` - hit enter for the default `auto`
 1. Address to use as `From` for notification emails - hit enter for the default
 
-Hit `n` when asked to send a test e-mail. The configuation above is invalid and will not work. That's okay.
+Hit `n` when asked to send a test e-mail. The configuration above is invalid and will not work. That's okay.
 1. `Send a test e-mail now?` - hit `N` for No
+
+1. Enter `n` when asked about receiving important updates.
 
 You will see a notice that it will be written to `.env.production`. Hit enter to display the contents.
 
@@ -368,7 +371,7 @@ RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@emai
 
 {:start="4"}
 1. Look for `OK` and your password. SAVE THE PASSWORD.
-1. `RAILS_ENV=production bin/tootctl accounts modify admin2 --confirm`
+1. `RAILS_ENV=production bin/tootctl accounts modify admin2 --approve`
 1. Look for 'OK'
 
 ## Create your 'normal user' account
@@ -382,7 +385,7 @@ RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@emai
 1. You will see a message to look for a verification email; you will not get one (unless you setup email earlier)
 1. Return to your `ssh` shell
 1. `sudo docker exec -it mastodon-streaming-1 /bin/bash` (if you have exited the first session)
-1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts modify <your non-root username> --confirm`
+1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts modify <your non-root username> --approve`
 1. (look for `OK`) in return
 
 ## Verify your normal account works
