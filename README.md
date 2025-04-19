@@ -371,6 +371,7 @@ RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@emai
 
 {:start="4"}
 1. Look for `OK` and your password. SAVE THE PASSWORD.
+1. `RAILS_ENV=production bin/tootctl accounts modify admin2 --confirm`
 1. `RAILS_ENV=production bin/tootctl accounts modify admin2 --approve`
 1. Look for 'OK'
 
