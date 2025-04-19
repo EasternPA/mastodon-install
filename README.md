@@ -362,7 +362,7 @@ volumes:
 
 ## Create your Admin account
 1. Return to your primary `ssh` terminal session
-1. `sudo docker exec -it mastodon-streaming-1 /bin/bash`
+1. `sudo docker exec -it mastodon-web-1 /bin/bash`
 1. At the container command prompt, run:
 
 ```
