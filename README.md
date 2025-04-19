@@ -386,8 +386,9 @@ RAILS_ENV=production bin/tootctl accounts create admin2 --email <your-admin@emai
 1. You will see a message to look for a verification email; you will not get one (unless you setup email earlier)
 1. Return to your `ssh` shell
 1. `sudo docker exec -it mastodon-streaming-1 /bin/bash` (if you have exited the first session)
+1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts modify <your non-root username> --confirm`
 1. At the container command prompt, run `RAILS_ENV=production bin/tootctl accounts modify <your non-root username> --approve`
-1. (look for `OK`) in return
+1. (look for `OK`) after both commands
 
 ## Verify your normal account works
 1. Go back to your private browser window
