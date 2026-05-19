@@ -1,3 +1,5 @@
+Last updated: May 19, 2026
+
 # mastodon-install
 Instructions for hosting a small Mastodon server instance for free (well, *almost*) using docker compose
 
