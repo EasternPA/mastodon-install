@@ -232,7 +232,7 @@ When you see the suggested contents of `.env.production` shown, WAIT
 3. Edit `.env.production` with `vi` or `nano`, whichever you're comfortable using
 4. Paste in the contents of `.env.production` from the clipboard
 5. Save and exit (`Ctrl-s, Ctrl-x` in `nano` or `<Esc>:wq<Enter>` in `vi`)
-6. `sudo docker compose run --rm web bundle exec rake secret`
+6. `sudo docker compose run --rm web bundle exec rails secret`
 7. Copy the secret into the clipboard
 8. Open `.env.production` again for editing
 9. Locate the `SECRETS` section
